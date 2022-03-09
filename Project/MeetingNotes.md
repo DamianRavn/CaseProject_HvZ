@@ -1,4 +1,4 @@
-##Eftermiddag gruppe onsdag 09/03##
+## Eftermiddag gruppe onsdag 09/0 3##
 - HaknPlan
   - Task laves i Backlog og sendes derfra ind i sprints
 - GitHub repo struktur forslag
@@ -9,7 +9,7 @@
 - Jesper er remote frem til engang i næste uge
   - Fra mandag har vi derfor morgenmøde kl 13:00
 
-##Eftermiddag Dewald onsdag 09/03##
+## Eftermiddag Dewald onsdag 09/0 3##
 - Dewald anbefaler følgende
   - Auth0
   - Plain javascript for React
@@ -24,7 +24,7 @@
 - Final presentation 30th
 
 
-##Middag onsdag 09/03##
+## Middag onsdag 09/03 ##
 - Skriv løbende dokumentation for kode, push altid med comments
 - Spørg Kirstine om alle kan være på kontoret tirsdag og onsdag
 - Vi holder et dagligt møde omkring kl 9
@@ -32,7 +32,7 @@
 - Send emails til Jesper for invit til HacknPlan
 
 
-##Morgen onsdag 09/03##
+## Morgen onsdag 09/03 ##
 - Vi mødes igen kl 11:30 efter at have læst case, case guidance og tænkt over opgaver/tasks
 - Møde med Dewalt 13:00
 - Vi vil have MVP klar senest d. 25.
