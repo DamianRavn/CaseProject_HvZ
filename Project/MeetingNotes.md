@@ -1,4 +1,4 @@
-## Eftermiddag gruppe onsdag 09/0 3##
+## Eftermiddag gruppe onsdag 09/03 ##
 - HaknPlan
   - Task laves i Backlog og sendes derfra ind i sprints
 - GitHub repo struktur forslag
@@ -9,7 +9,7 @@
 - Jesper er remote frem til engang i næste uge
   - Fra mandag har vi derfor morgenmøde kl 13:00
 
-## Eftermiddag Dewald onsdag 09/0 3##
+## Eftermiddag Dewald onsdag 09/03 ##
 - Dewald anbefaler følgende
   - Auth0
   - Plain javascript for React
