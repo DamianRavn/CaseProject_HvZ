@@ -42,7 +42,7 @@ Contact one of the authors if something goes wrong.
 - [Marius Samson](https://github.com/Maxius0)
 - [Frosti Hallfridarson](https://github.com/frostiha)
 - [Jesper Jensen](https://github.com/igl0)
-- [Filip Hein](https://github.com/) //Todo - add link
+- [Filip Hein](https://github.com/HeinF)
 
 ## License
 
