@@ -1,0 +1,74 @@
++(high) A landing page with a list of currently available games
+	+(high) Each game listed should display the title, the current game state, number of registered players and relevant dates.
+
+	+(medium)The game list should be visible even to anonymous users, however the option to
+	visit the game detail page (by clicking one of the options in the game list) should
+	only be available to active, authenticated users.
+
+	+(medium)Users must be able to authenticate (or register) themselves. This need not be overly
+	fancy, however standard security practices should be followed. Candidates could
+	delegate authentication to a federated identity provider service, such as Google,
+	however this is optional.
+
++(medium) Title Fragment. The name, description and rules of the game should be displayed
+to any user. The name and description should vary between games but the rules
+should be constant.
+
++(medium) Registration Fragment. A simple button that allows a user to register as a
+player in this game.
+
++(low) Map Fragment. An interactive map of the game area that may contain gravestones and mission markers from time to time. The visibility of individual
+markers may vary based on the player state.
+
++(high) Bite Code Fragment. When tagged, human players are required to provide
+a unique, secret bite code to the zombie. The bite codes should be randomly
+generated and appropriate for manual text entry.
+
++(high) Bite Code Entry. Zombies that collect the bite code of a human must log their
+kill in the system to turn the human player into a zombie. 
++(low) Optionally the killer may specify GPS coordinates and a text description of their kill to create a gravestone
+marker on the map
+
++(low or 1 squad) Squad Registration Fragment. The squad registration fragment should display
+a small form to create a new squad and a list of available squads to be joined. Each
+entry in the list should display thier name, respective total number of members,
+number of “deceased” members and a button to join the squad.
+
++(low) Squad Details Fragment. This should display the names, relative ranks and
+state of each of the members of your squad. Additionally there should be buttons
+to leave a check in marker on your current position and to leave the squad.
+
++(medium) Chat Fragment. A simple tabbed, factional chat display with a text field for
+sending a new message and a button to send. Pressing the enter key while in the
+text field should have the same behaviour as pressing the send button
+
++(medium)  FE-03: Administrator View
+	+(medium) Create and edit a game
+	+(medium) Edit any individual player’s state.
+	+(low) Create and edit mission markers.
+
++(low) Desktop and Mobile Compatible (concentrate on web first)
+
++(high) API-03: Game States
+
++(high) DB-01: Database Design
+
++(medium) User Authentication
+
++(high) Input Sanitation
+
++(high) Credential Storage
+
++(high) HTTPS
+
++(low?) Loading Time
+
++(medium)  Error Messages
+
++(high) User Manual
+
++(high) README.md + API Documentation
+
++(high) Deliverables + Presentation
+
++(high) Deployment
