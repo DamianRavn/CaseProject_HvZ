@@ -104,7 +104,7 @@ namespace WebAPI.Controllers
             _context.User.Add(domainUser);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetUser", new { id = domainUser.Id }, domainUser);
+            return CreatedAtAction("GetUser", new { id = domainUser.Id }, _mapper.Map<UserReadDTO>(domainUser));
         }
 
         //// DELETE: api/Users/5
