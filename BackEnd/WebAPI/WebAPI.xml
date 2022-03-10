@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebAPI</name>
+    </assembly>
+    <members>
+        <member name="T:WebAPI.Controllers.PlayersController">
+            <summary>
+            The controller holds all the API endpoints for the Players table
+            </summary>
+        </member>
+        <member name="M:WebAPI.Controllers.PlayersController.#ctor(WebAPI.Models.HumanVZombiesDbContext,AutoMapper.IMapper)">
+            <summary>
+            Adding context and mapper with dependency injection.
+            </summary>
+            <param name="context">The proper context</param>
+            <param name="mapper">The automapper</param>
+        </member>
+        <member name="M:WebAPI.Controllers.PlayersController.GetPlayers">
+            <summary>
+            Fetches all players in the database.
+            </summary>
+            <returns>A collection of players.</returns>
+        </member>
+        <member name="M:WebAPI.Controllers.PlayersController.GetPlayer(System.Int32)">
+            <summary>
+            Fetches a specific player in the database.
+            </summary>
+            <param name="id">The id of the player to fetch.</param>
+            <returns>The player, if it exists. Otherwise, the NotFound response.</returns>
+        </member>
+        <member name="M:WebAPI.Controllers.PlayersController.PutPlayer(System.Int32,WebAPI.Models.DTO.Player.PlayerUpdateDTO)">
+            <summary>
+            Updates a specific player with the values of the given player object.
+            </summary>
+            <param name="id">The id of the player to update.</param>
+            <param name="dtoPlayer">A player object containing the updated values.</param>
+            <returns>Nothing if the update succeeds. BadRequest if the given id doesn't match the id of the player. NotFound if the player doesn't exist.</returns>
+        </member>
+        <member name="M:WebAPI.Controllers.PlayersController.PostPlayer(WebAPI.Models.DTO.Player.PlayerCreateDTO)">
+            <summary>
+            Creates a new player based on the given player object.
+            </summary>
+            <param name="dtoPlayer">The player object.</param>
+            <returns>The newly created player.</returns>
+        </member>
+        <member name="M:WebAPI.Controllers.PlayersController.DeletePlayer(System.Int32)">
+            <summary>
+            Deletes the player with the given id.
+            </summary>
+            <param name="id">The id of the player to delete.</param>
+            <returns>Nothing if the deletion succeeds. NotFound if no player with the given id exist.</returns>
+        </member>
+        <member name="M:WebAPI.Controllers.PlayersController.PlayerExists(System.Int32)">
+            <summary>
+            Helper function, which checks if a player with the given id exists.
+            </summary>
+            <param name="id">The id to check for.</param>
+            <returns>True if a player with that id exists. False otherwise.</returns>
+        </member>
+    </members>
+</doc>
