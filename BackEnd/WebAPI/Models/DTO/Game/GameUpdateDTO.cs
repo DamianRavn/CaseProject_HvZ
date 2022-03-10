@@ -7,9 +7,9 @@ namespace WebAPI.Models.DTO.Game
 {
     public class GameUpdateDTO
     {
-        public int id { get; set; }
-        public string name { get; set; }
-        public string game_state { get; set; }
-        public int admin { get; set; }
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string GameState { get; set; }
+        public int Admin { get; set; }
     }
 }

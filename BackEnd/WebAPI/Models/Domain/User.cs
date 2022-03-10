@@ -8,10 +8,10 @@ namespace WebAPI.Models.Domain
 {
     public class User
     {
-        public int id { get; set; }
+        public int Id { get; set; }
         [Required, MaxLength(20)]
-        public string first_name { get; set; }
+        public string FirstName { get; set; }
         [Required, MaxLength(20)]
-        public string last_name { get; set; }
+        public string LastName { get; set; }
     }
 }
