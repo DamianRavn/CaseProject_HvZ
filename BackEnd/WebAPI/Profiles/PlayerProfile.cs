@@ -13,30 +13,30 @@ namespace WebAPI.Profiles
         public PlayerProfile()
         {
             CreateMap<Player, PlayerReadDTO>()
-                // user in dto is user_id
-                .ForMember(dto => dto.user, opt => opt
-                .MapFrom(a => a.user_id))
-                .ForMember(dto => dto.game, opt => opt
-                .MapFrom(a => a.game_id))
+                // User in dto is User_id
+                .ForMember(dto => dto.User, opt => opt
+                .MapFrom(a => a.UserId))
+                .ForMember(dto => dto.Game, opt => opt
+                .MapFrom(a => a.GameId))
                 .ReverseMap();
             CreateMap<PlayerCreateDTO, Player>()
-                // user in dto is user_id
-                .ForMember(cdto => cdto.user_id, opt => opt
-                .MapFrom(a => a.user))
-                .ForMember(cdto => cdto.game_id, opt => opt
-                .MapFrom(a => a.game))
+                // User in dto is User_id
+                .ForMember(cdto => cdto.UserId, opt => opt
+                .MapFrom(a => a.User))
+                .ForMember(cdto => cdto.GameId, opt => opt
+                .MapFrom(a => a.Game))
                 //Ignore objects for DTO
-                .ForMember(cdto => cdto.user, opt => opt.Ignore())
-                .ForMember(cdto => cdto.game, opt => opt.Ignore());
+                .ForMember(cdto => cdto.User, opt => opt.Ignore())
+                .ForMember(cdto => cdto.Game, opt => opt.Ignore());
             CreateMap<PlayerUpdateDTO, Player>()
-                // user in dto is user_id
-                .ForMember(cdto => cdto.user_id, opt => opt
-                .MapFrom(a => a.user))
-                .ForMember(cdto => cdto.game_id, opt => opt
-                .MapFrom(a => a.game))
+                // User in dto is User_id
+                .ForMember(cdto => cdto.UserId, opt => opt
+                .MapFrom(a => a.User))
+                .ForMember(cdto => cdto.GameId, opt => opt
+                .MapFrom(a => a.Game))
                 //Ignore objects for DTO
-                .ForMember(cdto => cdto.user, opt => opt.Ignore())
-                .ForMember(cdto => cdto.game, opt => opt.Ignore());
+                .ForMember(cdto => cdto.User, opt => opt.Ignore())
+                .ForMember(cdto => cdto.Game, opt => opt.Ignore());
         }
     }
 }

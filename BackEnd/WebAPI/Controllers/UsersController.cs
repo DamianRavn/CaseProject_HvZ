@@ -104,7 +104,7 @@ namespace WebAPI.Controllers
             _context.User.Add(domainUser);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetUser", new { id = domainUser.id }, domainUser);
+            return CreatedAtAction("GetUser", new { id = domainUser.Id }, domainUser);
         }
 
         //// DELETE: api/Users/5
@@ -130,7 +130,7 @@ namespace WebAPI.Controllers
         /// <returns>True if the user exists; false otherwise.</returns>
         private bool UserExists(int id)
         {
-            return _context.User.Any(e => e.id == id);
+            return _context.User.Any(e => e.Id == id);
         }
     }
 }

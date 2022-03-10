@@ -79,7 +79,7 @@ namespace WebAPI.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> PutPlayer(int id, PlayerUpdateDTO dtoPlayer)
         {
-            if (id != dtoPlayer.id)
+            if (id != dtoPlayer.Id)
             {
                 return BadRequest();
             }
@@ -122,7 +122,7 @@ namespace WebAPI.Controllers
             _context.Players.Add(domainPlayer);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetPlayer", new { id = domainPlayer.id },
+            return CreatedAtAction("GetPlayer", new { id = domainPlayer.Id },
                                    _mapper.Map<PlayerReadDTO>(domainPlayer));
         }
 
@@ -155,7 +155,7 @@ namespace WebAPI.Controllers
         /// <returns>True if a player with that id exists. False otherwise.</returns>
         private bool PlayerExists(int id)
         {
-            return _context.Players.Any(e => e.id == id);
+            return _context.Players.Any(e => e.Id == id);
         }
     }
 }

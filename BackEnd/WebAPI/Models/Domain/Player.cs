@@ -8,18 +8,18 @@ namespace WebAPI.Models.Domain
 {
     public class Player
     {
-        public int id { get; set; }
+        public int Id { get; set; }
         [Required]
-        public bool is_human { get; set; }
+        public bool IsHuman { get; set; }
         [Required]
-        public bool is_patient_zero { get; set; }
+        public bool IsPatientZero { get; set; }
         [Required, StringLength(5)]
-        public string biteCode { get; set; }
+        public string BiteCode { get; set; }
         [Required]
-        public int user_id { get; set; }
-        public User user { get; set; }
+        public int UserId { get; set; }
+        public User User { get; set; }
         [Required]
-        public int game_id { get; set; }
-        public Game game { get; set; }
+        public int GameId { get; set; }
+        public Game Game { get; set; }
     }
 }

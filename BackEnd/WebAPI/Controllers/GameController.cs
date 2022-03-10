@@ -81,7 +81,7 @@ namespace WebAPI.Controllers
             _context.Games.Add(domainGame);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetGame", new { id = domainGame.id },
+            return CreatedAtAction("GetGame", new { id = domainGame.Id },
                                    _mapper.Map<GameReadDTO>(domainGame));
         }
 
@@ -98,7 +98,7 @@ namespace WebAPI.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> PutGame(int id, GameUpdateDTO dtoGame)
         {
-            if (id != dtoGame.id)
+            if (id != dtoGame.Id)
             {
                 return BadRequest();
             }
@@ -135,7 +135,7 @@ namespace WebAPI.Controllers
         /// <returns>True if a game with that id exists. False otherwise.</returns>
         private bool GameExists(int id)
         {
-            return _context.Games.Any(e => e.id == id);
+            return _context.Games.Any(e => e.Id == id);
         }
     }
 }

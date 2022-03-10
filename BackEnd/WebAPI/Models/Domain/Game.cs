@@ -8,18 +8,18 @@ namespace WebAPI.Models.Domain
 {
     public class Game
     {
-        public int id { get; set; }
+        public int Id { get; set; }
 
         [Required]
-        public string name { get; set; }
+        public string Name { get; set; }
 
         [Required]
-        public State game_state { get; set; }
+        public State GameState { get; set; }
         
         [Required]
-        public int admin_id { get; set; }
-        public Admin admin { get; set; }
+        public int AdminId { get; set; }
+        public Admin Admin { get; set; }
 
-        public enum State { registation, in_progress, complete }
+        public enum State { Registation, InProgress, Complete }
     }
 }

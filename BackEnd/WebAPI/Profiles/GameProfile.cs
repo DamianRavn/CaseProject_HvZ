@@ -14,21 +14,21 @@ namespace WebAPI.Profiles
         {
             CreateMap<Game, GameReadDTO>()
                 // admin in dto is admin_id
-                .ForMember(dto => dto.admin, opt => opt
-                .MapFrom(a => a.admin_id))
+                .ForMember(dto => dto.Admin, opt => opt
+                .MapFrom(a => a.AdminId))
                 .ReverseMap();
             CreateMap<GameCreateDTO, Game>()
                 // admin in dto is admin_id
-                .ForMember(cdto => cdto.admin_id, opt => opt
-                .MapFrom(a => a.admin))
+                .ForMember(cdto => cdto.AdminId, opt => opt
+                .MapFrom(a => a.Admin))
                 //Ignore objects for DTO
-                .ForMember(cdto => cdto.admin, opt => opt.Ignore());
+                .ForMember(cdto => cdto.Admin, opt => opt.Ignore());
             CreateMap<GameUpdateDTO, Game>()
                 // admin in dto is admin_id
-                .ForMember(cdto => cdto.admin_id, opt => opt
-                .MapFrom(a => a.admin))
+                .ForMember(cdto => cdto.AdminId, opt => opt
+                .MapFrom(a => a.Admin))
                 //Ignore objects for DTO
-                .ForMember(cdto => cdto.admin, opt => opt.Ignore());
+                .ForMember(cdto => cdto.Admin, opt => opt.Ignore());
         }
     }
 }
