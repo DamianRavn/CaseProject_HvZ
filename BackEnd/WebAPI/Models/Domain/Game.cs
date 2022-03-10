@@ -14,10 +14,12 @@ namespace WebAPI.Models.Domain
         public string name { get; set; }
 
         [Required]
-        public string game_state { get; set; }
+        public State game_state { get; set; }
         
         [Required]
         public int admin_id { get; set; }
         public Admin admin { get; set; }
+
+        public enum State { registation, in_progress, complete }
     }
 }
