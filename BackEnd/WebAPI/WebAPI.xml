@@ -4,6 +4,53 @@
         <name>WebAPI</name>
     </assembly>
     <members>
+        <member name="T:WebAPI.Controllers.GameController">
+            <summary>
+            The controller holds all the API endpoints for the Games table
+            </summary>
+        </member>
+        <member name="M:WebAPI.Controllers.GameController.#ctor(WebAPI.Models.HumanVZombiesDbContext,AutoMapper.IMapper)">
+            <summary>
+            Adding context and mapper with dependency injection.
+            </summary>
+            <param name="context">The proper context</param>
+            <param name="mapper">The automapper</param>
+        </member>
+        <member name="M:WebAPI.Controllers.GameController.GetGames">
+            <summary>
+            Fetches all games from the database.
+            </summary>
+            <returns>A collection of games.</returns>
+        </member>
+        <member name="M:WebAPI.Controllers.GameController.GetGame(System.Int32)">
+            <summary>
+            Fetches a specific game in the database.
+            </summary>
+            <param name="id">The id of the game to fetch.</param>
+            <returns>The game, if it exists. Otherwise, the NotFound response.</returns>
+        </member>
+        <member name="M:WebAPI.Controllers.GameController.PostGame(WebAPI.Models.DTO.Game.GameCreateDTO)">
+            <summary>
+            Creates a new game based on the given game object.
+            </summary>
+            <param name="dtoGame">The game object.</param>
+            <returns>The newly created game.</returns>
+        </member>
+        <member name="M:WebAPI.Controllers.GameController.PutGame(System.Int32,WebAPI.Models.DTO.Game.GameUpdateDTO)">
+            <summary>
+            Updates a specific game with the values of the given game object.
+            </summary>
+            <param name="id">The id of the game to update.</param>
+            <param name="dtoGame">A game object containing the updated values.</param>
+            <returns>Nothing if the update succeeds. BadRequest if the given id doesn't match the id of a game. NotFound if the game doesn't exist.</returns>
+        </member>
+        <member name="M:WebAPI.Controllers.GameController.GameExists(System.Int32)">
+            <summary>
+            Helper function, which checks if a game with the given id exists.
+            </summary>
+            <param name="id">The id to check for.</param>
+            <returns>True if a game with that id exists. False otherwise.</returns>
+        </member>
         <member name="T:WebAPI.Controllers.PlayersController">
             <summary>
             The controller holds all the API endpoints for the Players table
