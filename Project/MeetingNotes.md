@@ -1,3 +1,23 @@
+## Morgen torsdag 10/03 ##
+- Database diagram
+  - Vi beholder det nuværende diagram for vores MVP
+  - Admin forbliver et seperat table fordi
+    - En admin skal kunne styre mange spil
+    - Spare plads i users, ie. ikke alle users er admin
+    - Tydeliggør vores database design ved at have det som separat table
+  - Required fields blev diskuteret
+    - is_human
+    - is_patient_zero
+    - bite_code
+    - userid
+    - gameid
+- GiHub rules er nu implementeret
+  - Man skal pull fra main til en branch og så merge derfra
+- Dage på kontoret
+  - Frosti skriver til Kirstine og spørger om vi kan have to dage sammen på kontoret
+  - Kirstine laver så en ny plan og publiserer den, formegentligt i næste uge
+- Mødet i morgen, fredag d. 11/03, starter kl 09:30
+
 ## Eftermiddag gruppe onsdag 09/03 ##
 - HaknPlan
   - Task laves i Backlog og sendes derfra ind i sprints
