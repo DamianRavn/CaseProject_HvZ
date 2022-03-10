@@ -10,11 +10,9 @@ namespace WebAPI.Models
     public class HumanVZombiesDbContext : DbContext
     {
         public DbSet<Player> Players { get; set; }
-
         public DbSet<Game> Games { get; set; }
-        //public DbSet<Movie> Movies { get; set; }
-        //public DbSet<Franchise> Franchises { get; set; }
-        public DbSet<WebAPI.Models.Domain.User> User { get; set; }
+        public DbSet<User> User { get; set; }
+        public DbSet<Admin> Admin { get; set; }
 
 
         public HumanVZombiesDbContext(DbContextOptions options) : base(options)
@@ -24,43 +22,28 @@ namespace WebAPI.Models
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Seeding data
-            //modelBuilder.Entity<Player>().HasData(new Player() { Id = 1, Name = "Thor", Alias = "Lord of Thunder", Gender = "Male" });
-            //modelBuilder.Entity<Player>().HasData(new Player() { Id = 2, Name = "Ironman", Alias = "Tony Stark", Gender = "Male" });
-            //modelBuilder.Entity<Player>().HasData(new Player() { Id = 3, Name = "Black Widow", Alias = "Natasha Romanoff", Gender = "Female" });
-            //modelBuilder.Entity<Player>().HasData(new Player() { Id = 4, Name = "Spiderman", Alias = "Peter Parker", Gender = "Male" });
-            //modelBuilder.Entity<Player>().HasData(new Player() { Id = 5, Name = "Batman", Alias = "Bruce Wayne", Gender = "Male" });
 
-            //    modelBuilder.Entity<Franchise>().HasData(new Franchise() { Id = 1, Name = "MCU", Description = "Marvel's cinematic universe." });
-            //    modelBuilder.Entity<Franchise>().HasData(new Franchise() { Id = 2, Name = "DNT", Description = "Dark Knight Trilogy" });
-            //    modelBuilder.Entity<Franchise>().HasData(new Franchise() { Id = 3, Name = "TCU", Description = "Titanic's cinematic universe." });
+            modelBuilder.Entity<User>().HasData(new User() { Id = 1, FirstName = "James", LastName = "Smith"});
+            modelBuilder.Entity<User>().HasData(new User() { Id = 2, FirstName = "James", LastName = "Glass" });
+            modelBuilder.Entity<User>().HasData(new User() { Id = 3, FirstName = "Cameron", LastName = "Webcam" });
+            modelBuilder.Entity<User>().HasData(new User() { Id = 4, FirstName = "Face", LastName = "Off" });
+            modelBuilder.Entity<User>().HasData(new User() { Id = 5, FirstName = "Code", LastName = "Name" });
+            modelBuilder.Entity<User>().HasData(new User() { Id = 6, FirstName = "Seven", LastName = "Eight" });
+            modelBuilder.Entity<User>().HasData(new User() { Id = 7, FirstName = "Half", LastName = "Dan" });
 
-            //    modelBuilder.Entity<Movie>().HasData(new Movie() { Id = 1, Title = "The Avengers", Genre = "Action", Year = 2012, Director = "Joss Whedon", FranchiseId = 1 });
-            //    modelBuilder.Entity<Movie>().HasData(new Movie() { Id = 2, Title = "Avengers: Endgame", Genre = "Action", Year = 2019, Director = "Anthony Russo, Joe Russo", FranchiseId = 1 });
-            //    modelBuilder.Entity<Movie>().HasData(new Movie() { Id = 3, Title = "The Dark Knight", Genre = "Action", Year = 2008, Director = "Christopher Nolan" });
-            //    modelBuilder.Entity<Movie>().HasData(new Movie() { Id = 4, Title = "Titanic", Genre = "Action", Year = 1997, Director = "James Camera" });
+            modelBuilder.Entity<Admin>().HasData(new Admin() { Id = 1, UserId = 6 });
+            modelBuilder.Entity<Admin>().HasData(new Admin() { Id = 2, UserId = 7 });
 
-            //    // Seeding m2m Player-Movie.
-            //    modelBuilder.Entity<Player>()
-            //        .HasMany(p => p.Movies)
-            //        .WithMany(m => m.Players)
-            //        .UsingEntity<Dictionary<string, object>>(
-            //            "PlayerMovie",
-            //            r => r.HasOne<Movie>().WithMany().HasForeignKey("MovieId"),
-            //            l => l.HasOne<Player>().WithMany().HasForeignKey("PlayerId"),
-            //            je =>
-            //            {
-            //                je.HasKey("PlayerId", "MovieId");
-            //                je.HasData(
-            //                    new { PlayerId = 1, MovieId = 1 },
-            //                    new { PlayerId = 1, MovieId = 2 },
-            //                    new { PlayerId = 2, MovieId = 1 },
-            //                    new { PlayerId = 2, MovieId = 2 },
-            //                    new { PlayerId = 3, MovieId = 1 },
-            //                    new { PlayerId = 3, MovieId = 2 },
-            //                    new { PlayerId = 4, MovieId = 2 },
-            //                    new { PlayerId = 5, MovieId = 3 }
-            //                );
-            //            });
+            modelBuilder.Entity<Game>().HasData(new Game() { Id = 1, Name = "Game", AdminId = 1, GameState = Game.State.InProgress });
+            modelBuilder.Entity<Game>().HasData(new Game() { Id = 2, Name = "Some Game", AdminId = 2, GameState = Game.State.Registation });
+            modelBuilder.Entity<Game>().HasData(new Game() { Id = 3, Name = "This Game", AdminId = 1, GameState = Game.State.Complete });
+
+            modelBuilder.Entity<Player>().HasData(new Player() { Id = 1, IsHuman = true, IsPatientZero = false, BiteCode = "Rando", GameId = 1, UserId = 1 });
+            modelBuilder.Entity<Player>().HasData(new Player() { Id = 2, IsHuman = true, IsPatientZero = true, BiteCode = "mlyge", GameId = 1, UserId = 2 });
+            modelBuilder.Entity<Player>().HasData(new Player() { Id = 3, IsHuman = false, IsPatientZero = true, BiteCode = "nerat", GameId = 2, UserId = 3 });
+            modelBuilder.Entity<Player>().HasData(new Player() { Id = 4, IsHuman = true, IsPatientZero = false, BiteCode = "edCod", GameId = 2, UserId = 4 });
+            modelBuilder.Entity<Player>().HasData(new Player() { Id = 5, IsHuman = true, IsPatientZero = false, BiteCode = "e", GameId = 3, UserId = 5 });
+
         }
     }
 }
