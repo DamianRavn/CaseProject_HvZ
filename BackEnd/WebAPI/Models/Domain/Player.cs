@@ -13,10 +13,12 @@ namespace WebAPI.Models.Domain
         public bool is_human { get; set; }
         [Required]
         public bool is_patient_zero { get; set; }
-        [StringLength(10)]
+        [Required, StringLength(5)]
         public string biteCode { get; set; }
+        [Required]
         public int user_id { get; set; }
         public User user { get; set; }
+        [Required]
         public int game_id { get; set; }
         public Game game { get; set; }
     }
