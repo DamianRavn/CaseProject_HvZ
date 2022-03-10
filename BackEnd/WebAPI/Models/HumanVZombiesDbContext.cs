@@ -10,8 +10,7 @@ namespace WebAPI.Models
     public class HumanVZombiesDbContext : DbContext
     {
         public DbSet<Player> Players { get; set; }
-        //public DbSet<Movie> Movies { get; set; }
-        //public DbSet<Franchise> Franchises { get; set; }
+        public DbSet<WebAPI.Models.Domain.User> User { get; set; }
 
 
         public HumanVZombiesDbContext(DbContextOptions options) : base(options)
