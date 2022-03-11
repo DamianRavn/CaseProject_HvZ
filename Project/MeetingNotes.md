@@ -1,3 +1,17 @@
+## Morgen fredag 11/03 ##
+- Damian begynder at kigge på deployment
+- Marius kigger på database
+  - Nogle FKs skal være Nullable
+    - Starter med admin_id FK i Game
+- Frosti læser op på Redux
+- Filip læser op på Redux og laver et tomt projekt så Damian kan teste deployment
+- Vi har fået nyt skema. Pt skal vi alle møde mandag, onsdag og fredag.
+  - Vi vil gerne have dette lavet om til 2 dage
+    - Vi foreslår mandag og onsdag, men dette skal koordineres med Kirstine og Jesper
+- På mandag møder vi på kontoret.
+  - Vi holder møde med Jesper kl 13:00
+  - Vi har møde med Dewald, er det også kl 13?
+
 ## Morgen torsdag 10/03 ##
 - Database diagram
   - Vi beholder det nuværende diagram for vores MVP
