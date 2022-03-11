@@ -1,7 +1,7 @@
 ## Morgen fredag 11/03 ##
 - Damian begynder at kigge på deployment
 - Marius kigger på database
-  - Nogle FKs skal være Nullable
+  - Nogle FKs skal være Nullable, fordi sql klagede over cascading deletes - Hvis user deletes, deleter den admin, som deleter game, og player bliver deleted af både user og game.
     - Starter med admin_id FK i Game
 - Frosti læser op på Redux
 - Filip læser op på Redux og laver et tomt projekt så Damian kan teste deployment
