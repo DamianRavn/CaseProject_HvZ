@@ -15,11 +15,9 @@ namespace WebAPI.Models.Domain
         public bool IsPatientZero { get; set; }
         [Required, StringLength(5)]
         public string BiteCode { get; set; }
-        [Required]
-        public int UserId { get; set; }
+        public int? UserId { get; set; }
         public User User { get; set; }
-        [Required]
-        public int GameId { get; set; }
+        public int? GameId { get; set; }
         public Game Game { get; set; }
     }
 }

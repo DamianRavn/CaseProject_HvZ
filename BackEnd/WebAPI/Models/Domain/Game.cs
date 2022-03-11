@@ -16,8 +16,7 @@ namespace WebAPI.Models.Domain
         [Required]
         public State GameState { get; set; }
         
-        [Required]
-        public int AdminId { get; set; }
+        public int? AdminId { get; set; }
         public Admin Admin { get; set; }
 
         public enum State { Registation, InProgress, Complete }
