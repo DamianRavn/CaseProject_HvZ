@@ -2,22 +2,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebAPI.Models;
 using WebAPI.Models.Domain;
-using WebAPI.Models.DTO.User;
+using AutoMapper;
+using WebAPI.Models.DTO.Admin;
 
 namespace WebAPI.Controllers
 {
     /// <summary>
-    /// API endpoints for User table
+    /// API endpoints for Admin table
     /// </summary>
     [Route("api/[controller]")]
     [ApiController]
-    public class UsersController : ControllerBase
+    public class AdminsController : ControllerBase
     {
         private readonly HumanVZombiesDbContext _context;
         private readonly IMapper _mapper;
@@ -27,51 +27,49 @@ namespace WebAPI.Controllers
         /// </summary>
         /// <param name="context">The proper context.</param>
         /// <param name="mapper">The automapper.</param>
-        public UsersController(HumanVZombiesDbContext context, IMapper mapper)
+        public AdminsController(HumanVZombiesDbContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
         }
 
         /// <summary>
-        /// Fetches all users in the database.
+        /// Fetches all admins in the database.
         /// </summary>
-        /// <returns>A list of users.</returns>
+        /// <returns>A list of admins.</returns>
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<UserReadDTO>>> GetUser()
+        public async Task<ActionResult<IEnumerable<AdminReadDTO>>> GetAdmin()
         {
-            return _mapper.Map<List<UserReadDTO>>(await _context.User.ToListAsync());
+            return _mapper.Map<List<AdminReadDTO>>(await _context.Admin.ToListAsync());
         }
 
         /// <summary>
-        /// Fetches a specific user.
+        /// Fetches a specific admin.
         /// </summary>
-        /// <param name="id">Id of the user to fetch.</param>
-        /// <returns>A single user.</returns>
+        /// <param name="id">Id of the admin to fetch.</param>
+        /// <returns>A single admin.</returns>
         [HttpGet("{id}")]
-        public async Task<ActionResult<UserReadDTO>> GetUser(int id)
+        public async Task<ActionResult<AdminReadDTO>> GetAdmin(int id)
         {
-            if (!UserExists(id))
+            if (!AdminExists(id))
             {
                 return NotFound();
             }
 
-            var user = await _context.User.FindAsync(id);
-
-            return _mapper.Map<UserReadDTO>(user);
+            return _mapper.Map<AdminReadDTO>(await _context.Admin.FindAsync(id));
         }
 
-        //// PUT: api/Users/5
+        //// PUT: api/Admins/5
         //// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         //[HttpPut("{id}")]
-        //public async Task<IActionResult> PutUser(int id, User user)
+        //public async Task<IActionResult> PutAdmin(int id, Admin admin)
         //{
-        //    if (id != user.id)
+        //    if (id != admin.Id)
         //    {
         //        return BadRequest();
         //    }
 
-        //    _context.Entry(user).State = EntityState.Modified;
+        //    _context.Entry(admin).State = EntityState.Modified;
 
         //    try
         //    {
@@ -79,7 +77,7 @@ namespace WebAPI.Controllers
         //    }
         //    catch (DbUpdateConcurrencyException)
         //    {
-        //        if (!UserExists(id))
+        //        if (!AdminExists(id))
         //        {
         //            return NotFound();
         //        }
@@ -93,31 +91,31 @@ namespace WebAPI.Controllers
         //}
 
         /// <summary>
-        /// Creates a new user in the database.
+        /// Creates a new admin in the database.
         /// </summary>
-        /// <param name="dtoUser">An object contining data for the new user.</param>
-        /// <returns>The newly created user.</returns>
+        /// <param name="dtoAdmin">An object contining data for the new admin.</param>
+        /// <returns>The newly created admin.</returns>
         [HttpPost]
-        public async Task<ActionResult<User>> PostUser(UserCreateDTO dtoUser)
+        public async Task<ActionResult<Admin>> PostAdmin(AdminCreateDTO dtoAdmin)
         {
-            User domainUser = _mapper.Map<User>(dtoUser);
-            _context.User.Add(domainUser);
+            Admin domainAdmin = _mapper.Map<Admin>(dtoAdmin);
+            _context.Admin.Add(domainAdmin);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetUser", new { id = domainUser.Id }, _mapper.Map<UserReadDTO>(domainUser));
+            return CreatedAtAction("GetAdmin", new { id = domainAdmin.Id }, _mapper.Map<AdminReadDTO>(domainAdmin));
         }
 
-        //// DELETE: api/Users/5
+        //// DELETE: api/Admins/5
         //[HttpDelete("{id}")]
-        //public async Task<IActionResult> DeleteUser(int id)
+        //public async Task<IActionResult> DeleteAdmin(int id)
         //{
-        //    var user = await _context.User.FindAsync(id);
-        //    if (user == null)
+        //    var admin = await _context.Admin.FindAsync(id);
+        //    if (admin == null)
         //    {
         //        return NotFound();
         //    }
 
-        //    _context.User.Remove(user);
+        //    _context.Admin.Remove(admin);
         //    await _context.SaveChangesAsync();
 
         //    return NoContent();
@@ -128,9 +126,9 @@ namespace WebAPI.Controllers
         /// </summary>
         /// <param name="id">Id of the user to check.</param>
         /// <returns>True if the user exists; false otherwise.</returns>
-        private bool UserExists(int id)
+        private bool AdminExists(int id)
         {
-            return _context.User.Any(e => e.Id == id);
+            return _context.Admin.Any(e => e.Id == id);
         }
     }
 }
