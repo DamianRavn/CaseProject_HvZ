@@ -122,6 +122,11 @@ namespace WebAPI.Controllers
             return CreatedAtAction("GetUser", new { id = domainUser.Id }, _mapper.Map<UserReadDTO>(domainUser));
         }
 
+        /// <summary>
+        /// Sign in as a user
+        /// </summary>
+        /// <param name="domainUser">the user trying to sign in</param>
+        /// <returns>ok with UserReadDTO if successful</returns>
         [HttpPost("signin")]
         public async Task<ActionResult<UserReadDTO>> SignIn(User domainUser)
         {

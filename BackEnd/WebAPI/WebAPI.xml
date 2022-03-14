@@ -176,6 +176,13 @@
             <param name="dtoUser">An object contining data for the new user.</param>
             <returns>The newly created user.</returns>
         </member>
+        <member name="M:WebAPI.Controllers.UsersController.SignIn(WebAPI.Models.Domain.User)">
+            <summary>
+            Sign in as a user
+            </summary>
+            <param name="domainUser">the user trying to sign in</param>
+            <returns>ok with UserReadDTO if successful</returns>
+        </member>
         <member name="M:WebAPI.Controllers.UsersController.UserExists(System.Int32)">
             <summary>
             Helper function to test if a user exists in the database or not.
