@@ -9,11 +9,10 @@ const initialStateValue = {
 
 export const fetchUsers = createAsyncThunk("user/fetchUser", async () => {
   return fetch(`${apiURl}`, {
-    // method: "GET",
-    // mode: "no-cors",
-    // headers: {
-    //   "Content-Type": "application/json",
-    // },
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
   })
     .then((response) => {
       console.log(response);
