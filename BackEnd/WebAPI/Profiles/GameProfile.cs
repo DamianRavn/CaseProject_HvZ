@@ -18,9 +18,6 @@ namespace WebAPI.Profiles
                 .MapFrom(a => a.AdminId))
                 .ReverseMap();
             CreateMap<GameCreateDTO, Game>()
-                // admin in dto is admin_id
-                .ForMember(cdto => cdto.AdminId, opt => opt
-                .MapFrom(a => a.Admin))
                 //Ignore objects for DTO
                 .ForMember(cdto => cdto.Admin, opt => opt.Ignore());
             CreateMap<GameUpdateDTO, Game>()
