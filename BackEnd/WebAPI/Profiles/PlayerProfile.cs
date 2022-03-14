@@ -37,6 +37,13 @@ namespace WebAPI.Profiles
                 //Ignore objects for DTO
                 .ForMember(cdto => cdto.User, opt => opt.Ignore())
                 .ForMember(cdto => cdto.Game, opt => opt.Ignore());
+            CreateMap<Player, PlayerReadDTONonAdmin>()
+                // User in dto is User_id
+                .ForMember(dto => dto.User, opt => opt
+                .MapFrom(a => a.UserId))
+                .ForMember(dto => dto.Game, opt => opt
+                .MapFrom(a => a.GameId))
+                .ReverseMap();
         }
     }
 }
