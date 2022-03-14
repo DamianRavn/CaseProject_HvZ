@@ -1,3 +1,17 @@
+## Morgen mandag 11/03 ##
+- Damian har addet security og auth tokens og tilføjet username og password attributes 
+- dDployment
+  - pt virker det til at databasen giver nogle problemer
+- Vi er stadig lidt i tvivl om hvordan database relationerne skal være
+  - Fx, skal man kunne være admin til flere games in progress
+  - Hvordan deleter vi, implementere vi vores egen funktion der minder om cascade delete?
+  - Vi spørger Dewald til eftermiddagmødet
+- Frontend
+  - Vi har basic scaffolding nu, men vi ved ikke helt hvordan redux implementeres korrekt
+    - Marius og Frosti hjælper Filip på frontend
+    - Damian har et repo på github med en redux implementation, kig evt. på den
+- Vi holder møde med Dewald kl 13
+
 ## Morgen fredag 11/03 ##
 - Damian begynder at kigge på deployment
 - Marius kigger på database
