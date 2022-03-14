@@ -148,6 +148,41 @@ namespace WebAPI.Controllers
             return NoContent();
         }
 
+
+        /// <summary>
+        /// Fetches all players in the database by a non-admin user. Doesn't display BiteCode and IsPatientZero attributes.
+        /// </summary>
+        /// <returns>A collection of players.</returns>
+        [HttpGet("non-admin")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<ActionResult<IEnumerable<PlayerReadDTONonAdmin>>> GetPlayersNonAdmin()
+        {
+            return _mapper.Map<List<PlayerReadDTONonAdmin>>(await _context.Players
+                .ToListAsync());
+        }
+
+
+        /// <summary>
+        /// Fetches a specific player in the database by a non-admin user. Doesn't display BiteCode and IsPatientZero attributes.
+        /// </summary>
+        /// <param name="id">The id of the player to fetch.</param>
+        /// <returns>The player, if it exists. Otherwise, the NotFound response.</returns>
+        [HttpGet("non-admin/{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        public async Task<ActionResult<PlayerReadDTONonAdmin>> GetPlayerNonAdmin(int id)
+        {
+            var player = await _context.Players.FindAsync(id);
+
+            if (player == null)
+            {
+                return NotFound();
+            }
+
+            return _mapper.Map<PlayerReadDTONonAdmin>(player);
+        }
+
+
         /// <summary>
         /// Helper function, which checks if a player with the given id exists.
         /// </summary>
