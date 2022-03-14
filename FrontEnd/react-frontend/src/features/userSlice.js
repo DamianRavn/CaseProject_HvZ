@@ -2,17 +2,9 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
 const apiURl = "https://localhost:44389/api/Users";
 
-const initialStateValue = {
-  users: [],
-  status: "idle",
-};
-
 export const fetchUsers = createAsyncThunk("user/fetchUser", async () => {
   return fetch(`${apiURl}`, {
     method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
   })
     .then((response) => {
       console.log(response);
@@ -29,25 +21,26 @@ export const fetchUsers = createAsyncThunk("user/fetchUser", async () => {
 export const userSlice = createSlice({
   name: "users",
   initialState: {
-    value: initialStateValue,
+    users: [],
+    status: "idle",
   },
   reducers: {
     register: (state, action) => {
-      state.value = action.payload;
+      state.users = action.payload;
     },
   },
   extraReducers: {
     [fetchUsers.pending]: (state, action) => {
-      state.value.status = "loading";
+      state.status = "loading";
     },
     [fetchUsers.fulfilled]: (state, payloadObj) => {
       console.log(payloadObj);
-      state.value = payloadObj.payload;
-      state.value.status = "success";
+      state.users = payloadObj.payload;
+      state.status = "success";
     },
     [fetchUsers.rejected]: (state, action) => {
-      state.value.status = "failed";
-      state.value.error = action.error.message;
+      state.status = "failed";
+      state.error = action.error.message;
     },
   },
 });

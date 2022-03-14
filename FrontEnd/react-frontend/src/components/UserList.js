@@ -7,7 +7,7 @@ export const UserList = () => {
   const dispatch = useDispatch();
   const users = useSelector(selectAllUsers);
 
-  const userStatus = useSelector((state) => state.users.value.status);
+  const userStatus = useSelector((state) => state.users.status);
 
   useEffect(() => {
     if (userStatus === "idle") {
