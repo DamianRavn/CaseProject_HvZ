@@ -5,13 +5,14 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
+import store from "./store";
 import userReducer from "./features/userSlice";
 
-const store = configureStore({
-  reducer: {
-    user: userReducer,
-  },
-});
+// const store = configureStore({
+//   reducer: {
+//     user: userReducer,
+//   },
+// });
 
 ReactDOM.render(
   <React.StrictMode>

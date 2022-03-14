@@ -1,17 +1,14 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { UserList } from "./components/UserList";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <div className="App">
-          <h1 className="text-3xl font-bold underline">
-            Hello world with Tailwind!
-          </h1>
-        </div>
-      </Routes>
-    </BrowserRouter>
+    // <BrowserRouter>
+    // <Routes>
+    <UserList></UserList>
+    // </Routes>
+    // </BrowserRouter>
   );
 }
 

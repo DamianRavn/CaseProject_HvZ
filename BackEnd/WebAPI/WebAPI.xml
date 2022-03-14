@@ -4,6 +4,45 @@
         <name>WebAPI</name>
     </assembly>
     <members>
+        <member name="T:WebAPI.Controllers.AdminsController">
+            <summary>
+            API endpoints for Admin table
+            </summary>
+        </member>
+        <member name="M:WebAPI.Controllers.AdminsController.#ctor(WebAPI.Models.HumanVZombiesDbContext,AutoMapper.IMapper)">
+            <summary>
+            Adding context and mapper with dependency injection.
+            </summary>
+            <param name="context">The proper context.</param>
+            <param name="mapper">The automapper.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.AdminsController.GetAdmin">
+            <summary>
+            Fetches all admins in the database.
+            </summary>
+            <returns>A list of admins.</returns>
+        </member>
+        <member name="M:WebAPI.Controllers.AdminsController.GetAdmin(System.Int32)">
+            <summary>
+            Fetches a specific admin.
+            </summary>
+            <param name="id">Id of the admin to fetch.</param>
+            <returns>A single admin.</returns>
+        </member>
+        <member name="M:WebAPI.Controllers.AdminsController.PostAdmin(WebAPI.Models.DTO.Admin.AdminCreateDTO)">
+            <summary>
+            Creates a new admin in the database.
+            </summary>
+            <param name="dtoAdmin">An object contining data for the new admin.</param>
+            <returns>The newly created admin.</returns>
+        </member>
+        <member name="M:WebAPI.Controllers.AdminsController.AdminExists(System.Int32)">
+            <summary>
+            Helper function to test if a user exists in the database or not.
+            </summary>
+            <param name="id">Id of the user to check.</param>
+            <returns>True if the user exists; false otherwise.</returns>
+        </member>
         <member name="T:WebAPI.Controllers.GameController">
             <summary>
             The controller holds all the API endpoints for the Games table
@@ -104,6 +143,45 @@
             </summary>
             <param name="id">The id to check for.</param>
             <returns>True if a player with that id exists. False otherwise.</returns>
+        </member>
+        <member name="T:WebAPI.Controllers.UsersController">
+            <summary>
+            API endpoints for User table
+            </summary>
+        </member>
+        <member name="M:WebAPI.Controllers.UsersController.#ctor(WebAPI.Models.HumanVZombiesDbContext,AutoMapper.IMapper)">
+            <summary>
+            Adding context and mapper with dependency injection.
+            </summary>
+            <param name="context">The proper context.</param>
+            <param name="mapper">The automapper.</param>
+        </member>
+        <member name="M:WebAPI.Controllers.UsersController.GetUser">
+            <summary>
+            Fetches all users in the database.
+            </summary>
+            <returns>A list of users.</returns>
+        </member>
+        <member name="M:WebAPI.Controllers.UsersController.GetUser(System.Int32)">
+            <summary>
+            Fetches a specific user.
+            </summary>
+            <param name="id">Id of the user to fetch.</param>
+            <returns>A single user.</returns>
+        </member>
+        <member name="M:WebAPI.Controllers.UsersController.PostUser(WebAPI.Models.DTO.User.UserCreateDTO)">
+            <summary>
+            Creates a new user in the database.
+            </summary>
+            <param name="dtoUser">An object contining data for the new user.</param>
+            <returns>The newly created user.</returns>
+        </member>
+        <member name="M:WebAPI.Controllers.UsersController.UserExists(System.Int32)">
+            <summary>
+            Helper function to test if a user exists in the database or not.
+            </summary>
+            <param name="id">Id of the user to check.</param>
+            <returns>True if the user exists; false otherwise.</returns>
         </member>
     </members>
 </doc>
