@@ -37,6 +37,19 @@ namespace WebAPI.Controllers
             _currentUser = _context.User.First(u => u.UserName == httpContextAccessor.HttpContext.User.Identity.Name);
         }
 
+
+        /// <summary>
+        /// This is a test method to test ci/cd.
+        /// </summary>
+        /// <returns>A collection of games.</returns>
+        [HttpGet]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public async Task<ActionResult<IEnumerable<GameReadDTO>>> Test()
+        {
+            return _mapper.Map<List<GameReadDTO>>(await _context.Games
+                .ToListAsync());
+        }
+
         /// <summary>
         /// Fetches all games from the database.
         /// </summary>
