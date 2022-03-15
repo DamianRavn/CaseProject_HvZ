@@ -32,7 +32,7 @@ jobs:
         working-directory: BackEnd/WebAPI
 
       - name: dotnet publish
-        run: dotnet publish -c Release -o '${{env.AZURE_WEBAPP_PACKAGE_PATH}}/myapp'
+        run: dotnet publish -c Release -o '${{env.AZURE_WEBAPP_PACKAGE_PATH}}/dist'
         working-directory: BackEnd/WebAPI
 
       - name: Deploy to Azure Web App
@@ -47,7 +47,7 @@ jobs:
       #   uses: actions/upload-artifact@v3
       #   with:
       #     name: .net-app
-      #     path: '${{env.AZURE_WEBAPP_PACKAGE_PATH}}/myapp'
+      #     path: '${{env.AZURE_WEBAPP_PACKAGE_PATH}}/dist'
 
   # deploy:
   #   runs-on: windows-latest
