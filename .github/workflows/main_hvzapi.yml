@@ -5,7 +5,7 @@ name: Build and deploy ASP.Net Core app to Azure Web App - hvzapi
 
 env:
   AZURE_WEBAPP_NAME: hvzapi    # set this to the name of your Azure Web App
-  AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
+  AZURE_WEBAPP_PACKAGE_PATH: 'BackEnd/WebAPI/'      # set this to the path to your web app project, defaults to the repository root
   DOTNET_VERSION: '5.0.405'                 # set this to the .NET Core version to use
 
 on:
@@ -29,11 +29,11 @@ jobs:
 
       - name: Build with dotnet
         run: dotnet build --configuration Release
-        working-directory: BackEnd/WebAPI/
+        working-directory: ${{env.AZURE_WEBAPP_PACKAGE_PATH}}
 
       - name: dotnet publish
         run: dotnet publish -c Release -o '${{env.AZURE_WEBAPP_PACKAGE_PATH}}/myapp'
-        working-directory: BackEnd/WebAPI/
+        working-directory: ${{env.AZURE_WEBAPP_PACKAGE_PATH}}
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
