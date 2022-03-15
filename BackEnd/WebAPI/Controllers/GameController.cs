@@ -41,13 +41,13 @@ namespace WebAPI.Controllers
         /// <summary>
         /// This is a test method to test ci/cd.
         /// </summary>
-        /// <returns>A collection of games.</returns>
-        [HttpGet]
+        /// <returns>The specified game</returns>
+        [HttpGet("{name}")]
         [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult<IEnumerable<GameReadDTO>>> Test()
+        public async Task<ActionResult<IEnumerable<GameReadDTO>>> FindGame(string name)
         {
             return _mapper.Map<List<GameReadDTO>>(await _context.Games
-                .ToListAsync());
+                .FirstOrDefaultAsync((g) => name == g.Name));
         }
 
         /// <summary>
