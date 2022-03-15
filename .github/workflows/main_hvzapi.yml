@@ -15,7 +15,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build:
+  build-and-deploy:
     runs-on: windows-latest
 
     steps:
@@ -35,25 +35,6 @@ jobs:
         run: dotnet publish -c Release -o '${{env.AZURE_WEBAPP_PACKAGE_PATH}}/myapp'
         working-directory: BackEnd/WebAPI/
 
-      # - name: Upload artifact for deployment job
-      #   uses: actions/upload-artifact@v3
-      #   with:
-      #     name: .net-app
-      #     path: '${{env.AZURE_WEBAPP_PACKAGE_PATH}}/myapp'
-
-  deploy:
-    runs-on: windows-latest
-    needs: build
-    environment:
-      name: 'Production'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
-
-    # steps:
-    #   - name: Download artifact from build job
-    #     uses: actions/download-artifact@v2
-    #     with:
-    #       name: .net-app
-
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
@@ -62,3 +43,23 @@ jobs:
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_FA463E23A6A7434994A6DE8651709875 }}
           package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+      # - name: Upload artifact for deployment job
+      #   uses: actions/upload-artifact@v3
+      #   with:
+      #     name: .net-app
+      #     path: '${{env.AZURE_WEBAPP_PACKAGE_PATH}}/myapp'
+
+  # deploy:
+  #   runs-on: windows-latest
+  #   needs: build
+  #   environment:
+  #     name: 'Production'
+  #     url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+
+    # steps:
+    #   - name: Download artifact from build job
+    #     uses: actions/download-artifact@v2
+    #     with:
+    #       name: .net-app
+
+     
