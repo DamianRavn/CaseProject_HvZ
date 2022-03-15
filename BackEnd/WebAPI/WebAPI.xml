@@ -55,6 +55,12 @@
             <param name="context">The proper context</param>
             <param name="mapper">The automapper</param>
         </member>
+        <member name="M:WebAPI.Controllers.GameController.FindGame(System.String)">
+            <summary>
+            This is a test method to test ci/cd.
+            </summary>
+            <returns>The specified game</returns>
+        </member>
         <member name="M:WebAPI.Controllers.GameController.GetGames">
             <summary>
             Fetches all games from the database.
