@@ -3,34 +3,40 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using WebAPI.Models;
 using WebAPI.Models.Domain;
 using WebAPI.Models.DTO.User;
+using WebAPI.Utilities;
 
 namespace WebAPI.Controllers
 {
     /// <summary>
-    /// API endpoints for User table
+    /// API endpoints for User table. Requires authorization
     /// </summary>
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class UsersController : ControllerBase
     {
         private readonly HumanVZombiesDbContext _context;
         private readonly IMapper _mapper;
+        //private readonly IPasswordHasher<User> _passwordHasher;
 
         /// <summary>
         /// Adding context and mapper with dependency injection.
         /// </summary>
         /// <param name="context">The proper context.</param>
         /// <param name="mapper">The automapper.</param>
-        public UsersController(HumanVZombiesDbContext context, IMapper mapper)
+        public UsersController(HumanVZombiesDbContext context, IMapper mapper/*, IPasswordHasher<User> passwordHasher*/)
         {
             _context = context;
             _mapper = mapper;
+            //_passwordHasher = passwordHasher;
         }
 
         /// <summary>
@@ -38,9 +44,9 @@ namespace WebAPI.Controllers
         /// </summary>
         /// <returns>A list of users.</returns>
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<UserReadDTO>>> GetUser()
+        public async Task<ActionResult<IEnumerable<UserReadDTO>>> GetUsers()
         {
-            return _mapper.Map<List<UserReadDTO>>(await _context.User.ToListAsync());
+            return Ok(_mapper.Map<List<UserReadDTO>>(await _context.User.ToListAsync()));
         }
 
         /// <summary>
@@ -57,8 +63,8 @@ namespace WebAPI.Controllers
             }
 
             var user = await _context.User.FindAsync(id);
-
-            return _mapper.Map<UserReadDTO>(user);
+            UserReadDTO dtoUser = _mapper.Map<UserReadDTO>(user);
+            return Ok(dtoUser);
         }
 
         //// PUT: api/Users/5
@@ -100,12 +106,37 @@ namespace WebAPI.Controllers
         [HttpPost]
         public async Task<ActionResult<User>> PostUser(UserCreateDTO dtoUser)
         {
+            
+            //Check if user already exists
+            //var checkUser = await _context.User.FirstOrDefaultAsync(u => u.UserName.Equals(dtoUser.UserName));
+            //409 for now. maybe check better error
+            //if (checkUser != null) return StatusCode(409);
+
             User domainUser = _mapper.Map<User>(dtoUser);
-            _context.User.Add(domainUser);
+            //Hash the password for security
+            //domainUser.Password = _passwordHasher.HashPassword(domainUser, domainUser.Password);
+            await _context.User.AddAsync(domainUser);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetUser", new { id = domainUser.Id }, _mapper.Map<UserReadDTO>(domainUser));
         }
+
+        /// <summary>
+        /// Sign in as a user
+        /// </summary>
+        /// <param name="domainUser">the user trying to sign in</param>
+        /// <returns>ok with UserReadDTO if successful</returns>
+        //[HttpPost("signin")]
+        //public async Task<ActionResult<UserReadDTO>> SignIn(User domainUser)
+        //{
+        //    //Check if user already exists
+        //    var user = await _context.User.FirstOrDefaultAsync(u => u.UserName.Equals(domainUser.UserName));
+        //    //401 for now. maybe check better error
+        //    if (user == null || _passwordHasher.VerifyHashedPassword(user, user.Password, domainUser.Password) == PasswordVerificationResult.Failed) return StatusCode(401);
+
+        //    UserReadDTO dtoUser = _mapper.Map<UserReadDTO>(user);
+        //    return Ok(dtoUser);
+        //}
 
         //// DELETE: api/Users/5
         //[HttpDelete("{id}")]

@@ -137,6 +137,19 @@
             <param name="id">The id of the player to delete.</param>
             <returns>Nothing if the deletion succeeds. NotFound if no player with the given id exist.</returns>
         </member>
+        <member name="M:WebAPI.Controllers.PlayersController.GetPlayersNonAdmin">
+            <summary>
+            Fetches all players in the database by a non-admin user. Doesn't display BiteCode and IsPatientZero attributes.
+            </summary>
+            <returns>A collection of players.</returns>
+        </member>
+        <member name="M:WebAPI.Controllers.PlayersController.GetPlayerNonAdmin(System.Int32)">
+            <summary>
+            Fetches a specific player in the database by a non-admin user. Doesn't display BiteCode and IsPatientZero attributes.
+            </summary>
+            <param name="id">The id of the player to fetch.</param>
+            <returns>The player, if it exists. Otherwise, the NotFound response.</returns>
+        </member>
         <member name="M:WebAPI.Controllers.PlayersController.PlayerExists(System.Int32)">
             <summary>
             Helper function, which checks if a player with the given id exists.
@@ -182,6 +195,21 @@
             </summary>
             <param name="id">Id of the user to check.</param>
             <returns>True if the user exists; false otherwise.</returns>
+        </member>
+        <member name="M:WebAPI.Utilities.JwtGenerator.GenerateUserToken(System.String)">
+            <summary>
+            Used to generate a user token for security
+            </summary>
+            <param name="username">the name the user logs on with</param>
+            <returns>A secure token</returns>
+        </member>
+        <member name="M:WebAPI.Utilities.JwtGenerator.GenerateToken(System.Security.Claims.Claim[],System.DateTime)">
+            <summary>
+            Generates the actual token
+            </summary>
+            <param name="claims">the claims</param>
+            <param name="expires">when the token expires</param>
+            <returns>A secure token</returns>
         </member>
     </members>
 </doc>

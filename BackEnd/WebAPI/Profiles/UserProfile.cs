@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using WebAPI.Models.Domain;
 using WebAPI.Models.DTO.User;
+using WebAPI.Utilities;
 
 namespace WebAPI.Profiles
 {
@@ -8,7 +9,7 @@ namespace WebAPI.Profiles
     {
         public UserProfile()
         {
-            CreateMap<User, UserReadDTO>();
+            CreateMap<User, UserReadDTO>(); //.ForMember(cdto => cdto.Token, opt => opt.MapFrom(u=> JwtGenerator.GenerateUserToken(u.UserName)));
             CreateMap<UserCreateDTO, User>();
         }        
     }
