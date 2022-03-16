@@ -1,5 +1,6 @@
 import { useContext, useEffect} from "react";
 import { useNavigate } from "react-router-dom";
+import { GameList } from "../Lists/GameList";
 
 const Landing = () => {
 
@@ -15,8 +16,12 @@ const Landing = () => {
       <div className="text-4xl" ><h1>Landing Page</h1></div>
       </div>
       <br></br>
-      
+
       <button className="btn" onClick={gotoLogin}>Login Page</button>
+
+      <br></br>
+      <GameList></GameList>
+      
     </div>
     
   );

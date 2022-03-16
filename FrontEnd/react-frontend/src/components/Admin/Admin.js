@@ -28,9 +28,9 @@ const Admin = () => {
       <br></br>
       
       <button className="btn" onClick={gotoGameRegistration}>Game Registration Page</button>
-      <div class="divider"/>
+      <div className="divider"/>
       <button className="btn" onClick={gotoGame}>Game Page</button>
-      <div class="divider"/>
+      <div className="divider"/>
       <button className="btn" onClick={gotoLanding}>Landing Page</button>
       
     </div>

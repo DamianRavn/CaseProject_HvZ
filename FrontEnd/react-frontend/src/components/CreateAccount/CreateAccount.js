@@ -8,8 +8,7 @@ const CreateAccount = () => {
   const navigator = useNavigate()
   
   const handleCreateAccountBtn = () => {  
-    alert("Create Account: button pressed")
-    //navigator("/game")
+    navigator("/gamereg")
   }
 
   const gotoLoginPage = () => {  
@@ -24,7 +23,7 @@ const CreateAccount = () => {
       <br></br>
       
       <button className="btn" onClick={gotoLoginPage}>Go Back</button>
-      <div class="divider"/>
+      <div className="divider"/>
       <button className="btn" onClick={handleCreateAccountBtn}>Create Account</button>
       
     </div>

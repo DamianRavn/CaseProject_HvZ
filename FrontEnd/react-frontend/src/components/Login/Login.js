@@ -9,9 +9,7 @@ const Login = () => {
   
 
   const gotoSignIn = () => {  
-    alert("Sign In: button pressed")
-    
-    //navigator("/game")
+    navigator("/gamereg")
   }
 
   const gotoCreateAccount = () => {  
@@ -21,7 +19,6 @@ const Login = () => {
   const gotoHelp = () => {  
     alert("Help: button pressed.")
     
-    //navigator("/admin")
   }
 
   const gotoLandingPage = () => {  
@@ -36,11 +33,11 @@ const Login = () => {
       <br></br>
       
       <button className="btn" onClick={gotoLandingPage}>Go Back</button>
-      <div class="divider"/>
+      <div className="divider"/>
       <button className="btn" onClick={gotoSignIn}>Sign in</button>
-      <div class="divider"/>
+      <div className="divider"/>
       <button className="btn" onClick={gotoCreateAccount}>Greate Account</button>
-      <div class="divider"/>
+      <div className="divider"/>
       <button className="btn" onClick={gotoHelp}>Help</button>
       
     </div>
