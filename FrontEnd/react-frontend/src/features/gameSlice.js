@@ -1,6 +1,17 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import {
+  createSlice,
+  createAsyncThunk,
+  createEntityAdapter,
+} from "@reduxjs/toolkit";
 
 const apiURl = "https://hvzapi.azurewebsites.net/api/game";
+
+const gamesAdapter = createEntityAdapter();
+
+const initialState = gamesAdapter.getInitialState({
+  status: "idle",
+  error: null,
+});
 
 export const fetchGames = createAsyncThunk("game/fetchGames", async () => {
   return fetch(`${apiURl}`, {
@@ -18,30 +29,43 @@ export const fetchGames = createAsyncThunk("game/fetchGames", async () => {
     });
 });
 
+// export const gameSlice = createSlice({
+//   name: "games",
+//   initialState: {
+//     games: [],
+//     status: "idle",
+//   },
+//   reducers: {
+//     register: (state, action) => {
+//       state.games = action.payload;
+//     },
+//   },
+//   extraReducers: {
+//     [fetchGames.pending]: (state, action) => {
+//       state.status = "loading";
+//     },
+//     [fetchGames.fulfilled]: (state, payloadObj) => {
+//       console.log(payloadObj);
+//       state.games = payloadObj.payload;
+//       state.status = "success";
+//     },
+//     [fetchGames.rejected]: (state, action) => {
+//       state.status = "failed";
+//       state.error = action.error.message;
+//     },
+//   },
+// });
+
+// export default gameSlice.reducer;
+
+// export const selectAllGames = (state) => state.games;
+
 export const gameSlice = createSlice({
   name: "games",
-  initialState: {
-    games: [],
-    status: "idle",
-  },
-  reducers: {
-    register: (state, action) => {
-      state.games = action.payload;
-    },
-  },
-  extraReducers: {
-    [fetchGames.pending]: (state, action) => {
-      state.status = "loading";
-    },
-    [fetchGames.fulfilled]: (state, payloadObj) => {
-      console.log(payloadObj);
-      state.games = payloadObj.payload;
-      state.status = "success";
-    },
-    [fetchGames.rejected]: (state, action) => {
-      state.status = "failed";
-      state.error = action.error.message;
-    },
+  initialState,
+  reducers: {},
+  extraReducers(builder) {
+    builder.addCase(fetchGames.fulfilled, gamesAdapter.setAll);
   },
 });
 
