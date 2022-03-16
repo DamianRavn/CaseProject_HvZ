@@ -1,15 +1,30 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { UserList } from "./components/UserList";
+import { UserList } from "./components/Lists/UserList";
+import { GameList } from "./components/Lists/GameList";
+import LandingPage from './Views/LandingPage'
+import AdminPage from './Views/AdminPage'
+import GamePage from './Views/GamePage'
+import GameRegistrationPage from './Views/GameRegistrationPage'
 
 function App() {
   return (
-    // <BrowserRouter>
-    // <Routes>
-    <UserList></UserList>
-    // </Routes>
-    // </BrowserRouter>
+    <BrowserRouter>
+     <div>
+      <Routes>
+        <Route path='/' element={<LandingPage />} />
+        <Route path='/admin' element={<AdminPage />} />
+        <Route path='/game' element={<GamePage />} />
+        <Route path='/gamereg' element={<GameRegistrationPage />} />
+     </Routes>
+     </div>
+    </BrowserRouter>
   );
 }
 
 export default App;
+
+
+
+{/* //<UserList></UserList>
+      //<GameList></GameList> */}
