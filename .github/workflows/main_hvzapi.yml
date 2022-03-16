@@ -15,7 +15,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-and-deploy:
+  build-and-deploy-backend:
     runs-on: windows-latest
 
     steps:
