@@ -36,6 +36,7 @@ namespace WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
             services.AddDbContext<HumanVZombiesDbContext>(
                 opt => opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
@@ -67,24 +68,24 @@ namespace WebAPI
 
 
             //Make sure the token is used 
-            var secret = Environment.GetEnvironmentVariable("JWT_SECRET");
-            var issuer = Environment.GetEnvironmentVariable("JWT_ISSUER");
+            //var secret = Environment.GetEnvironmentVariable("JWT_SECRET");
+            //var issuer = Environment.GetEnvironmentVariable("JWT_ISSUER");
 
-            services.AddAuthentication(opts =>
-            {
-                opts.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                opts.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            })
-            .AddJwtBearer(opts=>
-            {
-                opts.TokenValidationParameters = new TokenValidationParameters
-                {
-                    ValidateIssuerSigningKey = true,
-                    ValidIssuer = issuer,
-                    ValidateAudience = false,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(secret))
-                };
-            });
+            //services.AddAuthentication(opts =>
+            //{
+            //    opts.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            //    opts.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            //})
+            //.AddJwtBearer(opts=>
+            //{
+            //    opts.TokenValidationParameters = new TokenValidationParameters
+            //    {
+            //        ValidateIssuerSigningKey = true,
+            //        ValidIssuer = issuer,
+            //        ValidateAudience = false,
+            //        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(secret))
+            //    };
+            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -92,6 +93,10 @@ namespace WebAPI
         {
             if (env.IsDevelopment())
             {
+                app.UseCors(options =>
+                {
+                    options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+                });
                 app.UseDeveloperExceptionPage();
             }
 
@@ -101,7 +106,7 @@ namespace WebAPI
 
             app.UseCors("HvZPolicy");
 
-            app.UseAuthentication();
+            //app.UseAuthentication();
 
             app.UseAuthorization();
 
