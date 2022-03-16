@@ -9,8 +9,8 @@ namespace WebAPI.Profiles
     {
         public UserProfile()
         {
-            CreateMap<User, UserReadDTO>().ForMember(cdto => cdto.Token, opt => opt.MapFrom(u=> JwtGenerator.GenerateUserToken(u.UserName)));
-            CreateMap<UserCreateDTO, User>(); //.ForMember(cdto => cdto.Franchise, opt => opt.Ignore());
+            CreateMap<User, UserReadDTO>(); //.ForMember(cdto => cdto.Token, opt => opt.MapFrom(u=> JwtGenerator.GenerateUserToken(u.UserName)));
+            CreateMap<UserCreateDTO, User>();
         }        
     }
 }

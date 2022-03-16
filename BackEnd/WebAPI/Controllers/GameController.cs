@@ -23,31 +23,18 @@ namespace WebAPI.Controllers
     {
         private readonly HumanVZombiesDbContext _context;
         private readonly IMapper _mapper;
-        private readonly User _currentUser;
+        //private readonly User _currentUser;
 
         /// <summary>
         /// Adding context and mapper with dependency injection.
         /// </summary>
         /// <param name="context">The proper context</param>
         /// <param name="mapper">The automapper</param>
-        public GameController(HumanVZombiesDbContext context, IMapper mapper, IHttpContextAccessor httpContextAccessor)
+        public GameController(HumanVZombiesDbContext context, IMapper mapper/*, IHttpContextAccessor httpContextAccessor*/)
         {
             _context = context;
             _mapper = mapper;
-            _currentUser = _context.User.First(u => u.UserName == httpContextAccessor.HttpContext.User.Identity.Name);
-        }
-
-
-        /// <summary>
-        /// This is a test method to test ci/cd.
-        /// </summary>
-        /// <returns>The specified game</returns>
-        [HttpGet("{name}")]
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        public async Task<ActionResult<IEnumerable<GameReadDTO>>> FindGame(string name)
-        {
-            return _mapper.Map<List<GameReadDTO>>(await _context.Games
-                .FirstOrDefaultAsync((g) => name == g.Name));
+            //_currentUser = _context.User.First(u => u.UserName == httpContextAccessor.HttpContext.User.Identity.Name);
         }
 
         /// <summary>
@@ -96,13 +83,13 @@ namespace WebAPI.Controllers
             Game domainGame = _mapper.Map<Game>(dtoGame);
 
             //Making an admin directly
-            var dtoAdmin = new AdminCreateDTO { User = _currentUser.Id };
-            Admin domainAdmin = _mapper.Map<Admin>(dtoAdmin);
-            _context.Admin.Add(domainAdmin);
-            await _context.SaveChangesAsync();
+            //var dtoAdmin = new AdminCreateDTO { User = _currentUser.Id };
+            //Admin domainAdmin = _mapper.Map<Admin>(dtoAdmin);
+            //_context.Admin.Add(domainAdmin);
+            //await _context.SaveChangesAsync();
 
-            domainGame.Admin = domainAdmin;
-            domainGame.AdminId = domainAdmin.Id;
+            //domainGame.Admin = domainAdmin;
+            //domainGame.AdminId = domainAdmin.Id;
 
             _context.Games.Add(domainGame);
             await _context.SaveChangesAsync();
