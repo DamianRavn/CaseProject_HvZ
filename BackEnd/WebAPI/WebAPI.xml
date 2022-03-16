@@ -48,18 +48,12 @@
             The controller holds all the API endpoints for the Games table
             </summary>
         </member>
-        <member name="M:WebAPI.Controllers.GameController.#ctor(WebAPI.Models.HumanVZombiesDbContext,AutoMapper.IMapper,Microsoft.AspNetCore.Http.IHttpContextAccessor)">
+        <member name="M:WebAPI.Controllers.GameController.#ctor(WebAPI.Models.HumanVZombiesDbContext,AutoMapper.IMapper)">
             <summary>
             Adding context and mapper with dependency injection.
             </summary>
             <param name="context">The proper context</param>
             <param name="mapper">The automapper</param>
-        </member>
-        <member name="M:WebAPI.Controllers.GameController.FindGame(System.String)">
-            <summary>
-            This is a test method to test ci/cd.
-            </summary>
-            <returns>The specified game</returns>
         </member>
         <member name="M:WebAPI.Controllers.GameController.GetGames">
             <summary>
@@ -168,7 +162,7 @@
             API endpoints for User table. Requires authorization
             </summary>
         </member>
-        <member name="M:WebAPI.Controllers.UsersController.#ctor(WebAPI.Models.HumanVZombiesDbContext,AutoMapper.IMapper,Microsoft.AspNetCore.Identity.IPasswordHasher{WebAPI.Models.Domain.User})">
+        <member name="M:WebAPI.Controllers.UsersController.#ctor(WebAPI.Models.HumanVZombiesDbContext,AutoMapper.IMapper)">
             <summary>
             Adding context and mapper with dependency injection.
             </summary>
@@ -194,13 +188,6 @@
             </summary>
             <param name="dtoUser">An object contining data for the new user.</param>
             <returns>The newly created user.</returns>
-        </member>
-        <member name="M:WebAPI.Controllers.UsersController.SignIn(WebAPI.Models.Domain.User)">
-            <summary>
-            Sign in as a user
-            </summary>
-            <param name="domainUser">the user trying to sign in</param>
-            <returns>ok with UserReadDTO if successful</returns>
         </member>
         <member name="M:WebAPI.Controllers.UsersController.UserExists(System.Int32)">
             <summary>

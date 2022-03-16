@@ -67,24 +67,24 @@ namespace WebAPI
 
 
             //Make sure the token is used 
-            var secret = Environment.GetEnvironmentVariable("JWT_SECRET");
-            var issuer = Environment.GetEnvironmentVariable("JWT_ISSUER");
+            //var secret = Environment.GetEnvironmentVariable("JWT_SECRET");
+            //var issuer = Environment.GetEnvironmentVariable("JWT_ISSUER");
 
-            services.AddAuthentication(opts =>
-            {
-                opts.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                opts.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            })
-            .AddJwtBearer(opts=>
-            {
-                opts.TokenValidationParameters = new TokenValidationParameters
-                {
-                    ValidateIssuerSigningKey = true,
-                    ValidIssuer = issuer,
-                    ValidateAudience = false,
-                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(secret))
-                };
-            });
+            //services.AddAuthentication(opts =>
+            //{
+            //    opts.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            //    opts.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            //})
+            //.AddJwtBearer(opts=>
+            //{
+            //    opts.TokenValidationParameters = new TokenValidationParameters
+            //    {
+            //        ValidateIssuerSigningKey = true,
+            //        ValidIssuer = issuer,
+            //        ValidateAudience = false,
+            //        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(secret))
+            //    };
+            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -101,7 +101,7 @@ namespace WebAPI
 
             app.UseCors("HvZPolicy");
 
-            app.UseAuthentication();
+            //app.UseAuthentication();
 
             app.UseAuthorization();
 

@@ -18,25 +18,25 @@ namespace WebAPI.Controllers
     /// <summary>
     /// API endpoints for User table. Requires authorization
     /// </summary>
-    [Authorize]
+    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class UsersController : ControllerBase
     {
         private readonly HumanVZombiesDbContext _context;
         private readonly IMapper _mapper;
-        private readonly IPasswordHasher<User> _passwordHasher;
+        //private readonly IPasswordHasher<User> _passwordHasher;
 
         /// <summary>
         /// Adding context and mapper with dependency injection.
         /// </summary>
         /// <param name="context">The proper context.</param>
         /// <param name="mapper">The automapper.</param>
-        public UsersController(HumanVZombiesDbContext context, IMapper mapper, IPasswordHasher<User> passwordHasher)
+        public UsersController(HumanVZombiesDbContext context, IMapper mapper/*, IPasswordHasher<User> passwordHasher*/)
         {
             _context = context;
             _mapper = mapper;
-            _passwordHasher = passwordHasher;
+            //_passwordHasher = passwordHasher;
         }
 
         /// <summary>
@@ -108,14 +108,13 @@ namespace WebAPI.Controllers
         {
             
             //Check if user already exists
-            var checkUser = await _context.User.FirstOrDefaultAsync(u => u.UserName.Equals(dtoUser.UserName));
+            //var checkUser = await _context.User.FirstOrDefaultAsync(u => u.UserName.Equals(dtoUser.UserName));
             //409 for now. maybe check better error
-            if (checkUser != null) return StatusCode(409);
+            //if (checkUser != null) return StatusCode(409);
 
             User domainUser = _mapper.Map<User>(dtoUser);
             //Hash the password for security
-            domainUser.Password = _passwordHasher.HashPassword(domainUser, domainUser.Password);
-            Console.WriteLine(domainUser.Id);
+            //domainUser.Password = _passwordHasher.HashPassword(domainUser, domainUser.Password);
             await _context.User.AddAsync(domainUser);
             await _context.SaveChangesAsync();
 
@@ -127,17 +126,17 @@ namespace WebAPI.Controllers
         /// </summary>
         /// <param name="domainUser">the user trying to sign in</param>
         /// <returns>ok with UserReadDTO if successful</returns>
-        [HttpPost("signin")]
-        public async Task<ActionResult<UserReadDTO>> SignIn(User domainUser)
-        {
-            //Check if user already exists
-            var user = await _context.User.FirstOrDefaultAsync(u => u.UserName.Equals(domainUser.UserName));
-            //401 for now. maybe check better error
-            if (user == null || _passwordHasher.VerifyHashedPassword(user, user.Password, domainUser.Password) == PasswordVerificationResult.Failed) return StatusCode(401);
+        //[HttpPost("signin")]
+        //public async Task<ActionResult<UserReadDTO>> SignIn(User domainUser)
+        //{
+        //    //Check if user already exists
+        //    var user = await _context.User.FirstOrDefaultAsync(u => u.UserName.Equals(domainUser.UserName));
+        //    //401 for now. maybe check better error
+        //    if (user == null || _passwordHasher.VerifyHashedPassword(user, user.Password, domainUser.Password) == PasswordVerificationResult.Failed) return StatusCode(401);
 
-            UserReadDTO dtoUser = _mapper.Map<UserReadDTO>(user);
-            return Ok(dtoUser);
-        }
+        //    UserReadDTO dtoUser = _mapper.Map<UserReadDTO>(user);
+        //    return Ok(dtoUser);
+        //}
 
         //// DELETE: api/Users/5
         //[HttpDelete("{id}")]
