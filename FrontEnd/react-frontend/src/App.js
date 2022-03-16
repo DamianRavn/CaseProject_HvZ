@@ -28,7 +28,3 @@ function App() {
 
 export default App;
 
-
-
-{/* //<UserList></UserList>
-      //<GameList></GameList> */}

@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 
-const apiURl = "https://localhost:44389/api/Users";
+const apiURl = "https://hvzapi.azurewebsites.net/api/Users";
 
 export const fetchUsers = createAsyncThunk("user/fetchUser", async () => {
   return fetch(`${apiURl}`, {
