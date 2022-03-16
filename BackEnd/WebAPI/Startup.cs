@@ -36,6 +36,7 @@ namespace WebAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors();
             services.AddDbContext<HumanVZombiesDbContext>(
                 opt => opt.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             services.AddControllers();
@@ -92,6 +93,10 @@ namespace WebAPI
         {
             if (env.IsDevelopment())
             {
+                app.UseCors(options =>
+                {
+                    options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+                });
                 app.UseDeveloperExceptionPage();
             }
 
