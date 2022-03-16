@@ -17,7 +17,6 @@ const Landing = () => {
       <br></br>
       
       <button className="btn" onClick={gotoLogin}>Login Page</button>
-      
     </div>
     
   );
