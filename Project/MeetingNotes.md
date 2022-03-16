@@ -1,4 +1,21 @@
-## Morgen mandag 11/03 ##
+## Onsdag 16/03 ##
+- Frontend
+  - pt har vi en branch kaldet new-frontend-old-backend, fordi vi ikke har koblet frontend op på den nye backend der kræver en token
+    - Vi prøver at merge den nye frontend kode ind i main, så vi har et fælles udgangspunkt at arbejde ud fra.
+    - Den gamle backend kan stadig bruges indtil vi får koblet op til den nye
+- Backend
+  - Backend er en del foran frontend
+  - pt arbejdes der på input sanitation og https
+- Frosti arbejder på landing page i frontend, hvor bl.a. games skal vises
+  - Login og register funktioner laves først efter at vi har implementeret Keycloak
+- Jesper kigger på design med Tailwind og koordinerer med Frosti for at undgå dobbelt arbejde
+- Marius arbejder med Keycloak og integration af frontend med den nye backend
+- Filip arbejder med evt. refactoring af API kald og Axios og koordinerer også med Frosti for at undgå dobbeltarbejde
+- Der gives besked på Slack når vi har merget frontend fra 'new-frontend-old-backend' branch ind i main.
+  - Herefter brancher vi ud fra main for at implementere features og merger ind i main igen.
+- Vi mødes igen i morgen kl 13:00
+
+## Morgen mandag 14/03 ##
 - Damian har addet security og auth tokens og tilføjet username og password attributes 
 - dDployment
   - pt virker det til at databasen giver nogle problemer
