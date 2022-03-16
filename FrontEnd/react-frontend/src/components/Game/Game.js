@@ -22,7 +22,12 @@ const Game = () => {
 
   return (
     <div className="default-class">
-      <div className="title"><h1>Game Page</h1></div>
+      <div className="font-semibold">
+      <div className="text-4xl" ><h1>Game Page</h1></div>
+      </div>
+      <br></br>
+
+      
       
       <button className="btn" onClick={gotoGameRegistration}>Game Registration Page</button>
       <div class="divider"/>

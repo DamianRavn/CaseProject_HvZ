@@ -22,7 +22,10 @@ const Admin = () => {
 
   return (
     <div className="default-class">
-      <div className="title"><h1>Admin Page</h1></div>
+      <div className="font-semibold">
+      <div className="text-4xl" ><h1>Admin Page</h1></div>
+      </div>
+      <br></br>
       
       <button className="btn" onClick={gotoGameRegistration}>Game Registration Page</button>
       <div class="divider"/>

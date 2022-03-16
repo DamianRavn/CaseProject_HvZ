@@ -6,6 +6,8 @@ import LandingPage from './Views/LandingPage'
 import AdminPage from './Views/AdminPage'
 import GamePage from './Views/GamePage'
 import GameRegistrationPage from './Views/GameRegistrationPage'
+import LoginPage from './Views/LoginPage'
+import CreateAccountPage from './Views/CreateAccountPage'
 
 function App() {
   return (
@@ -16,6 +18,8 @@ function App() {
         <Route path='/admin' element={<AdminPage />} />
         <Route path='/game' element={<GamePage />} />
         <Route path='/gamereg' element={<GameRegistrationPage />} />
+        <Route path='/login' element={<LoginPage />} />
+        <Route path='/signup' element={<CreateAccountPage />} />
      </Routes>
      </div>
     </BrowserRouter>

@@ -22,7 +22,10 @@ const GameRegistration = () => {
 
   return (
     <div className="default-class">
-      <div className="title"><h1>Game Registration Page</h1></div>
+      <div className="font-semibold">
+      <div className="text-4xl" ><h1>Game Registration Page</h1></div>
+      </div>
+      <br></br>
       
       
       <button className="btn" onClick={gotoGame}>Game Page</button>

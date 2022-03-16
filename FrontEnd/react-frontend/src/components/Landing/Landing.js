@@ -5,30 +5,21 @@ const Landing = () => {
 
   const navigator = useNavigate()
 
-  const gotoGameRegistration = () => {  
-    navigator("/gamereg")
-  }
-
-  const gotoGame = () => {  
-    navigator("/game")
-  }
-
-  const gotoAdmin = () => {  
-    navigator("/admin")
+  const gotoLogin = () => {  
+    navigator("/login")
   }
 
   return (
     <div className="default-class">
-      <div className="title"><h1>Landing Page</h1></div>
+      <div className="font-semibold">
+      <div className="text-4xl" ><h1>Landing Page</h1></div>
+      </div>
+      <br></br>
       
-      
-      <button className="btn" onClick={gotoGameRegistration}>Game Registration Page</button>
-      <div class="divider"/>
-      <button className="btn" onClick={gotoGame}>Game Page</button>
-      <div class="divider"/>
-      <button className="btn" onClick={gotoAdmin}>Admin Page</button>
+      <button className="btn" onClick={gotoLogin}>Login Page</button>
       
     </div>
+    
   );
 };
 
