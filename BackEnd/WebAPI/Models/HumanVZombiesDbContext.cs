@@ -41,7 +41,7 @@ namespace WebAPI.Models
             modelBuilder.Entity<Admin>().HasData(new Admin() { Id = 2, UserId = 7 });
 
             modelBuilder.Entity<Game>().HasData(new Game() { Id = 1, Name = "Game", AdminId = 1, GameState = Game.State.InProgress });
-            modelBuilder.Entity<Game>().HasData(new Game() { Id = 2, Name = "Some Game", AdminId = 2, GameState = Game.State.Registation });
+            modelBuilder.Entity<Game>().HasData(new Game() { Id = 2, Name = "Some Game", AdminId = 2, GameState = Game.State.Registration });
             modelBuilder.Entity<Game>().HasData(new Game() { Id = 3, Name = "This Game", AdminId = 1, GameState = Game.State.Complete });
 
             modelBuilder.Entity<Player>().HasData(new Player() { Id = 1, IsHuman = true, IsPatientZero = false, BiteCode = "Rando", GameId = 1, UserId = 1 });
