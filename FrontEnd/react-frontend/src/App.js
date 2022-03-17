@@ -3,7 +3,7 @@ import React from "react";
 import { ReactKeycloakProvider } from "@react-keycloak/web";
 import keycloak from "./keycloak";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import Nav from "./components/Nav";
+import Nav from "./views/Nav";
 import LandingPage from "./views/LandingPage";
 import AdminPage from "./views/AdminPage";
 import GamePage from "./views/GamePage";
@@ -31,7 +31,7 @@ function App() {
                 </PrivateRoute>
               }
             />
-            <Route exact path="/games/:gameId" element={<Game />} />
+            <Route exact path="/game/:gameId" element={<Game />} />
             <Route path="/addgame" element={<AddGame />} />
             <Route path="/gamereg" element={<GameRegistrationPage />} />
             <Route path="/login" element={<LoginPage />} />

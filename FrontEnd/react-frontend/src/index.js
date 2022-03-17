@@ -7,12 +7,6 @@ import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import store from "./store";
 
-// const store = configureStore({
-//   reducer: {
-//     user: userReducer,
-//   },
-// });
-
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
