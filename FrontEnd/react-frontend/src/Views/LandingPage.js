@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { GameList } from "../components/Game/GameList.js";
+import { GameList } from "../components/game/GameList.js";
 import { UserList } from "../components/user/UserList.js";
 
 const LandingPage = () => {

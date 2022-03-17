@@ -4,17 +4,15 @@ import { ReactKeycloakProvider } from "@react-keycloak/web";
 import keycloak from "./keycloak";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Nav from "./components/Nav";
-import { UserList } from "./components/user/UserList";
-import { GameList } from "./components/Game/GameList";
-import LandingPage from "./Views/LandingPage";
-import AdminPage from "./Views/AdminPage";
-import GamePage from "./Views/GamePage";
-import GameRegistrationPage from "./Views/GameRegistrationPage";
-import LoginPage from "./Views/LoginPage";
-import CreateAccountPage from "./Views/CreateAccountPage";
+import LandingPage from "./views/LandingPage";
+import AdminPage from "./views/AdminPage";
+import GamePage from "./views/GamePage";
+import GameRegistrationPage from "./views/GameRegistrationPage";
+import LoginPage from "./views/LoginPage";
+import CreateAccountPage from "./views/CreateAccountPage";
 import PrivateRoute from "./helpers/PrivateRoute";
-import { Game } from "./components/Game/Game";
-import { AddGame } from "./components/Game/AddGame";
+import { Game } from "./components/game/Game";
+import { AddGame } from "./components/game/AddGame";
 
 function App() {
   return (
