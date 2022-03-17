@@ -18,6 +18,13 @@ export const apiSlice = createApi({
     getGame: builder.query({
       query: (gameId) => `/game/${gameId}`,
     }),
+    addNewGame: builder.mutation({
+      query: (initialGame) => ({
+        url: "/game",
+        method: "POST",
+        body: initialGame,
+      }),
+    }),
   }),
 });
 
@@ -26,4 +33,5 @@ export const {
   useGetUserQuery,
   useGetGamesQuery,
   useGetGameQuery,
+  useAddNewGameMutation,
 } = apiSlice;
