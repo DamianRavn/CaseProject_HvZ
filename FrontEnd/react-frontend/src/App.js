@@ -13,6 +13,8 @@ import GameRegistrationPage from "./Views/GameRegistrationPage";
 import LoginPage from "./Views/LoginPage";
 import CreateAccountPage from "./Views/CreateAccountPage";
 import PrivateRoute from "./helpers/PrivateRoute";
+import { Game } from "./components/Game/Game";
+import { AddGame } from "./components/Game/AddGame";
 
 function App() {
   return (
@@ -31,6 +33,8 @@ function App() {
                 </PrivateRoute>
               }
             />
+            <Route exact path="/games/:gameId" element={<Game />} />
+            <Route path="/addgame" element={<AddGame />} />
             <Route path="/gamereg" element={<GameRegistrationPage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/signup" element={<CreateAccountPage />} />
