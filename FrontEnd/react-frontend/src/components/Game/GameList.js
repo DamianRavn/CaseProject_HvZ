@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 // omit other imports
 // import { fetchGames, selectAllGames } from "../../features/gameSlice";
 import { useGetGamesQuery } from "../../features/apiSlice";
-import GameItem from "../HtmlItems/GameItem";
+import GameItem from "./GameItem";
 
 export const GameList = () => {
   const {

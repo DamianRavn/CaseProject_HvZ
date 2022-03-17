@@ -1,13 +1,11 @@
-import GameRegistration from '../components/GameRegistration/GameRegistration.js'
+import GameRegistration from "../components/Game/GameRegistration.js";
 
 const GameRegistrationPage = () => {
-
-return(
+  return (
     <div className="default-class">
-        <GameRegistration/>
+      <GameRegistration />
     </div>
-    )
+  );
+};
 
-}
-
-export default GameRegistrationPage
+export default GameRegistrationPage;

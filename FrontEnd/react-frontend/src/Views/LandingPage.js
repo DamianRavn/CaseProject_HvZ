@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import Landing from "../components/Landing/Landing.js";
-import { GameList } from "../components/Lists/GameList.js";
-import { UserList } from "../components/Lists/UserList.js";
+import { GameList } from "../components/Game/GameList.js";
+import { UserList } from "../components/user/UserList.js";
 
 const LandingPage = () => {
   const navigator = useNavigate();
