@@ -19,6 +19,6 @@ namespace WebAPI.Models.Domain
         public int? AdminId { get; set; }
         public Admin Admin { get; set; }
 
-        public enum State { Registation, InProgress, Complete }
+        public enum State { Registration, InProgress, Complete }
     }
 }

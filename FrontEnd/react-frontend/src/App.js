@@ -1,32 +1,43 @@
 import "./App.css";
-import { BrowserRouter, Routes, Route, useParams } from "react-router-dom";
+import React from "react";
+import { ReactKeycloakProvider } from "@react-keycloak/web";
+import keycloak from "./keycloak";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Nav from "./components/Nav";
 import { UserList } from "./components/Lists/UserList";
 import { GameList } from "./components/Lists/GameList";
-import { Game } from "./components/Game/Game";
-import LandingPage from "./views/LandingPage";
-import AdminPage from "./views/AdminPage";
-import GamePage from "./views/GamePage";
-import GameRegistrationPage from "./views/GameRegistrationPage";
-import LoginPage from "./views/LoginPage";
-import CreateAccountPage from "./views/CreateAccountPage";
-import { AddGame } from "./components/Game/AddGame";
+import LandingPage from "./Views/LandingPage";
+import AdminPage from "./Views/AdminPage";
+import GamePage from "./Views/GamePage";
+import GameRegistrationPage from "./Views/GameRegistrationPage";
+import LoginPage from "./Views/LoginPage";
+import CreateAccountPage from "./Views/CreateAccountPage";
+import PrivateRoute from "./helpers/PrivateRoute";
 
 function App() {
   return (
-    <BrowserRouter>
-      <div>
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/admin" element={<AdminPage />} />
-          <Route path="/game" element={<GamePage />} />
-          <Route exact path="/games/:gameId" element={<Game />} />
-          <Route path="/gamereg" element={<GameRegistrationPage />} />
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/signup" element={<CreateAccountPage />} />
-          <Route path="/addgame" element={<AddGame />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+    <div>
+      <ReactKeycloakProvider authClient={keycloak}>
+        <Nav />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<LandingPage />} />
+            <Route path="/admin" element={<AdminPage />} />
+            <Route
+              path="/game"
+              element={
+                <PrivateRoute>
+                  <GamePage />
+                </PrivateRoute>
+              }
+            />
+            <Route path="/gamereg" element={<GameRegistrationPage />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/signup" element={<CreateAccountPage />} />
+          </Routes>
+        </BrowserRouter>
+      </ReactKeycloakProvider>
+    </div>
   );
 }
 
