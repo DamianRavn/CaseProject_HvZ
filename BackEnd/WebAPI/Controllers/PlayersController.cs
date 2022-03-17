@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -17,6 +18,7 @@ namespace WebAPI.Controllers
     /// The controller holds all the API endpoints for the Players table
     /// </summary>
     [Route("api/[controller]")]
+    [Authorize]
     [ApiController]
     public class PlayersController : Controller
     {

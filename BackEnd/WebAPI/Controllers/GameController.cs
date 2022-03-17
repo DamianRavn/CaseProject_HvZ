@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -74,6 +75,7 @@ namespace WebAPI.Controllers
         /// </summary>
         /// <param name="dtoGame">The game object.</param>
         /// <returns>The newly created game.</returns>
+        [Authorize]
         [HttpPost]
         [ProducesResponseType(StatusCodes.Status201Created)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -104,6 +106,7 @@ namespace WebAPI.Controllers
         /// <param name="id">The id of the game to update.</param>
         /// <param name="dtoGame">A game object containing the updated values.</param>
         /// <returns>Nothing if the update succeeds. BadRequest if the given id doesn't match the id of a game. NotFound if the game doesn't exist.</returns>
+        [Authorize]
         [HttpPut("{id}")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]

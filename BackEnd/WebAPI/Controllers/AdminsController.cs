@@ -9,6 +9,7 @@ using WebAPI.Models;
 using WebAPI.Models.Domain;
 using AutoMapper;
 using WebAPI.Models.DTO.Admin;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebAPI.Controllers
 {
@@ -16,6 +17,7 @@ namespace WebAPI.Controllers
     /// API endpoints for Admin table
     /// </summary>
     [Route("api/[controller]")]
+    [Authorize]
     [ApiController]
     public class AdminsController : ControllerBase
     {
