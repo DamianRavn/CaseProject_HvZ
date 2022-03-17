@@ -7,7 +7,6 @@ const GameItem = (prop) => {
       <ul>
         <div className="text-2xl">
           <Link to={`/games/${prop.game.id}`}>Game name: {prop.game.name}</Link>
-          Game name:
         </div>
 
         <li>
