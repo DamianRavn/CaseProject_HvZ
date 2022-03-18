@@ -1,5 +1,5 @@
 import { useKeycloak } from "@react-keycloak/web";
-import { UserList } from "./user/UserList";
+import { UserList } from "../components/user/UserList";
 
 const Nav = () => {
   const { keycloak, initialized } = useKeycloak();
