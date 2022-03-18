@@ -12,6 +12,9 @@ export const apiSlice = createApi({
     getUser: builder.query({
       query: (userId) => `/Users/${userId}`,
     }),
+    getPlayerNonAdmin: builder.query({
+      query: () => "/Players/non-admin",
+    }),
     getGames: builder.query({
       query: () => "/game",
     }),
@@ -31,6 +34,7 @@ export const apiSlice = createApi({
 export const {
   useGetUsersQuery,
   useGetUserQuery,
+  useGetPlayerNonAdminQuery,
   useGetGamesQuery,
   useGetGameQuery,
   useAddNewGameMutation,
