@@ -12,10 +12,12 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Http;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,8 +44,6 @@ namespace WebAPI
             services.AddControllers();
             //Automapper maps bewteen domain and dto objects (profiles)
             services.AddAutoMapper(typeof(Startup));
-            //DI for passwordhashing used in users
-            services.AddTransient<IPasswordHasher<User>, PasswordHasher<User>>();
             //DI for authentication
             services.AddTransient<IHttpContextAccessor, HttpContextAccessor>();
             services.AddSwaggerGen(c =>
@@ -66,26 +66,31 @@ namespace WebAPI
                     });
             });
 
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+           .AddJwtBearer(options =>
+           {
+               options.TokenValidationParameters = new TokenValidationParameters
+               {
+                   IssuerSigningKeyResolver = (token, securityToken, kid, parameters) =>
+                   {
+                       var client = new HttpClient();
+                       var keyuri = "http://localhost:8080/realms/dev/protocol/openid-connect/certs";
+                       //Retrieves the keys from keycloak instance to verify token
+                       var response = client.GetAsync(keyuri).Result;
+                       var responseString = response.Content.ReadAsStringAsync().Result;
+                       var keys = JsonConvert.DeserializeObject<JsonWebKeySet>(responseString);
+                       return keys.Keys;
+                   },
 
-            //Make sure the token is used 
-            //var secret = Environment.GetEnvironmentVariable("JWT_SECRET");
-            //var issuer = Environment.GetEnvironmentVariable("JWT_ISSUER");
+                   ValidIssuers = new List<string>
+                   {
+                        "http://localhost:8080/realms/dev"
+                   },
 
-            //services.AddAuthentication(opts =>
-            //{
-            //    opts.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-            //    opts.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            //})
-            //.AddJwtBearer(opts=>
-            //{
-            //    opts.TokenValidationParameters = new TokenValidationParameters
-            //    {
-            //        ValidateIssuerSigningKey = true,
-            //        ValidIssuer = issuer,
-            //        ValidateAudience = false,
-            //        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(secret))
-            //    };
-            //});
+                   //This checks the token for a the 'aud' claim value
+                   ValidAudience = "account",
+               };
+           });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -106,7 +111,7 @@ namespace WebAPI
 
             app.UseCors("HvZPolicy");
 
-            //app.UseAuthentication();
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using WebAPI.Models.Domain;
 using WebAPI.Models.DTO.User;
-using WebAPI.Utilities;
 
 namespace WebAPI.Profiles
 {

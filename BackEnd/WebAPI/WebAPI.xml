@@ -159,7 +159,7 @@
         </member>
         <member name="T:WebAPI.Controllers.UsersController">
             <summary>
-            API endpoints for User table
+            API endpoints for User table. Requires authorization
             </summary>
         </member>
         <member name="M:WebAPI.Controllers.UsersController.#ctor(WebAPI.Models.HumanVZombiesDbContext,AutoMapper.IMapper)">
@@ -169,7 +169,7 @@
             <param name="context">The proper context.</param>
             <param name="mapper">The automapper.</param>
         </member>
-        <member name="M:WebAPI.Controllers.UsersController.GetUser">
+        <member name="M:WebAPI.Controllers.UsersController.GetUsers">
             <summary>
             Fetches all users in the database.
             </summary>
@@ -195,21 +195,6 @@
             </summary>
             <param name="id">Id of the user to check.</param>
             <returns>True if the user exists; false otherwise.</returns>
-        </member>
-        <member name="M:WebAPI.Utilities.JwtGenerator.GenerateUserToken(System.String)">
-            <summary>
-            Used to generate a user token for security
-            </summary>
-            <param name="username">the name the user logs on with</param>
-            <returns>A secure token</returns>
-        </member>
-        <member name="M:WebAPI.Utilities.JwtGenerator.GenerateToken(System.Security.Claims.Claim[],System.DateTime)">
-            <summary>
-            Generates the actual token
-            </summary>
-            <param name="claims">the claims</param>
-            <param name="expires">when the token expires</param>
-            <returns>A secure token</returns>
         </member>
     </members>
 </doc>

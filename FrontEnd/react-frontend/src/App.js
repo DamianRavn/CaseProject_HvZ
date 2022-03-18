@@ -10,7 +10,6 @@ import GamePage from "./views/GamePage";
 import GameRegistrationPage from "./views/GameRegistrationPage";
 import LoginPage from "./views/LoginPage";
 import CreateAccountPage from "./views/CreateAccountPage";
-import PrivateRoute from "./helpers/PrivateRoute";
 import { Game } from "./components/game/Game";
 import { AddGame } from "./components/game/AddGame";
 
@@ -23,15 +22,8 @@ function App() {
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/admin" element={<AdminPage />} />
-            <Route
-              path="/game"
-              element={
-                <PrivateRoute>
-                  <GamePage />
-                </PrivateRoute>
-              }
-            />
-            <Route exact path="/game/:gameId" element={<Game />} />
+            <Route path="/game" element={<GamePage />} />
+            <Route exact path="/games/:gameId" element={<Game />} />
             <Route path="/addgame" element={<AddGame />} />
             <Route path="/gamereg" element={<GameRegistrationPage />} />
             <Route path="/login" element={<LoginPage />} />
