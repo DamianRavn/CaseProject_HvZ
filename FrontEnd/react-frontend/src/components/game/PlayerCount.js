@@ -14,12 +14,11 @@ export const PlayerList = (props) => {
   if (isLoading) {
     content = <h1>Loading players</h1>;
   } else if (isSuccess) {
-    let gamePlayerCount = 0
-    players.forEach(player => {
-      if(player.game === props.gameId) gamePlayerCount++ 
+    let gamePlayerCount = 0;
+    players.forEach((player) => {
+      if (player.game === props.gameId) gamePlayerCount++;
     });
-    console.log("Total number of players in Game " + props.gameId + ": " + gamePlayerCount) 
-    content = <h1>Players in game {props.gameId}: {gamePlayerCount}.</h1>;
+    content = <h1>Number of Players: {gamePlayerCount}.</h1>;
   } else if (isError) {
     content = <h1>{error.toString()}</h1>;
   }

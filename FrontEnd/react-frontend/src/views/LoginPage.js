@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { PlayerList } from "../components/game/PlayerList";
+import { PlayerList } from "../components/game/PlayerCount";
 
 const LoginPage = () => {
   const navigator = useNavigate();
@@ -44,7 +44,7 @@ const LoginPage = () => {
       <button className="btn" onClick={gotoHelp}>
         Help
       </button>
-      <PlayerList gameId={1}></PlayerList> 
+      <PlayerList gameId={1}></PlayerList>
     </div>
   );
 };
