@@ -1,7 +1,7 @@
 import { useGetPlayerNonAdminQuery } from "../../features/apiSlice";
 import GameItem from "./GameItem";
 
-export const PlayerList = () => {
+export const PlayerList = (gameId) => {
   const {
     data: players,
     isLoading,
@@ -10,12 +10,17 @@ export const PlayerList = () => {
     error,
   } = useGetPlayerNonAdminQuery();
 
+  // let gameId = 1;
   let content;
   if (isLoading) {
     content = <h1>Loading players</h1>;
   } else if (isSuccess) {
-    content = <h1>Player List console.log() </h1>;
-    players.map((player) => console.log(player)) //<GameItem key={player.id} player={player} />);
+    let gamePlayerCount = 0
+    players.forEach(player => {
+      if(player.game === gameId) gamePlayerCount++ 
+    });
+    console.log("Total number of players in Game " + gameId + ": " + gamePlayerCount) 
+    content = <h1>Players in game {gameId}: {gamePlayerCount}.</h1>;
   } else if (isError) {
     content = <h1>{error.toString()}</h1>;
   }

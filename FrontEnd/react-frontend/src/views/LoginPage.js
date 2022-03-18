@@ -44,7 +44,7 @@ const LoginPage = () => {
       <button className="btn" onClick={gotoHelp}>
         Help
       </button>
-      <PlayerList />
+      <PlayerList gameId={1}></PlayerList> 
     </div>
   );
 };
