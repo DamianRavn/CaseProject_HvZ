@@ -9,5 +9,10 @@ export const UserList = () => {
     error,
   } = useGetUsersQuery();
 
-  return <h1>UserList</h1>;
+  return (
+    <>
+      <h1>UserList:</h1>
+      <p>{JSON.stringify(users)}</p>
+    </>
+  );
 };

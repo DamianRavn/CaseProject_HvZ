@@ -74,7 +74,7 @@ namespace WebAPI
                    IssuerSigningKeyResolver = (token, securityToken, kid, parameters) =>
                    {
                        var client = new HttpClient();
-                       var keyuri = Configuration["http://localhost:8080/realms/dev/protocol/openid-connect/certs"];
+                       var keyuri = "http://localhost:8080/realms/dev/protocol/openid-connect/certs";
                        //Retrieves the keys from keycloak instance to verify token
                        var response = client.GetAsync(keyuri).Result;
                        var responseString = response.Content.ReadAsStringAsync().Result;
@@ -84,7 +84,7 @@ namespace WebAPI
 
                    ValidIssuers = new List<string>
                    {
-                        Configuration["http://localhost:8080/realms/dev"]
+                        "http://localhost:8080/realms/dev"
                    },
 
                    //This checks the token for a the 'aud' claim value

@@ -1,4 +1,4 @@
-import Game from "../components/game/Game.js";
+import Game from "../components/Game/Game.js";
 import { useNavigate } from "react-router-dom";
 
 const GamePage = () => {
