@@ -1,4 +1,4 @@
-import CreateAccount from "../components/CreateAccount/CreateAccount.js";
+import CreateAccount from "../components/createAccount/CreateAccount.js";
 
 const CreateAccountPage = () => {
   return (

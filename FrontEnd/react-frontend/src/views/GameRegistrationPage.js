@@ -1,4 +1,4 @@
-import GameRegistration from "../components/Game/GameRegistration.js";
+import GameRegistration from "../components/game/GameRegistration.js";
 
 const GameRegistrationPage = () => {
   return (

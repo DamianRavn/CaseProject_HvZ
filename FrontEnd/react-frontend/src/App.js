@@ -10,8 +10,8 @@ import GamePage from "./views/GamePage";
 import GameRegistrationPage from "./views/GameRegistrationPage";
 import LoginPage from "./views/LoginPage";
 import CreateAccountPage from "./views/CreateAccountPage";
-import { Game } from "./components/Game/Game";
-import { AddGame } from "./components/Game/AddGame";
+import { Game } from "./components/game/Game";
+import { AddGame } from "./components/game/AddGame";
 
 function App() {
   return (
