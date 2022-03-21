@@ -16,7 +16,6 @@ import { AddGame } from "./components/game/AddGame";
 function App() {
   return (
     <div>
-      <ReactKeycloakProvider authClient={keycloak}>
         <Nav />
         <BrowserRouter>
           <Routes>
@@ -30,7 +29,6 @@ function App() {
             <Route path="/signup" element={<CreateAccountPage />} />
           </Routes>
         </BrowserRouter>
-      </ReactKeycloakProvider>
     </div>
   );
 }
