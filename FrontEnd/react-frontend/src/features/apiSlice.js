@@ -7,10 +7,19 @@ export const apiSlice = createApi({
   }),
   endpoints: (builder) => ({
     getUsers: builder.query({
-      query: () => "/Users",
+      query: () => ({
+        url: "/Users",
+        method: "GET",
+        headers: new Headers({
+          Authorization: "Bearer " + localStorage.getItem("access-token"),
+        }),
+      }),
     }),
     getUser: builder.query({
       query: (userId) => `/Users/${userId}`,
+    }),
+    getPlayerNonAdmin: builder.query({
+      query: () => "/Players/non-admin",
     }),
     getGames: builder.query({
       query: () => "/game",
@@ -31,6 +40,7 @@ export const apiSlice = createApi({
 export const {
   useGetUsersQuery,
   useGetUserQuery,
+  useGetPlayerNonAdminQuery,
   useGetGamesQuery,
   useGetGameQuery,
   useAddNewGameMutation,

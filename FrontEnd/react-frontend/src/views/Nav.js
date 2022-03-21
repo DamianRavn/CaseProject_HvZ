@@ -1,5 +1,5 @@
-import React from "react";
 import { useKeycloak } from "@react-keycloak/web";
+import { UserList } from "../components/user/UserList";
 
 const Nav = () => {
   const { keycloak, initialized } = useKeycloak();
@@ -36,8 +36,7 @@ const Nav = () => {
                       Login
                     </button>
                   )}
-
-                  {!!keycloak.authenticated && (
+                  {keycloak.authenticated && (
                     <button
                       type="button"
                       className="text-blue-800"

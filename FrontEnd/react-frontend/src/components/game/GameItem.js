@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { PlayerList } from "./PlayerCount";
 
 const GameItem = (prop) => {
   return (
@@ -6,14 +7,16 @@ const GameItem = (prop) => {
       <br></br>
       <ul>
         <div className="text-2xl">
-          <Link to={`/games/${prop.game.id}`}>Game name: {prop.game.name}</Link>
+          <Link to={`/game/${prop.game.id}`}>Game name: {prop.game.name}</Link>
         </div>
 
         <li>
           Game state: <a className="font-semibold">{prop.game.gameState}</a>
         </li>
         <li>
-          Admin ID: <a className="font-semibold">{prop.game.admin}</a>
+          <a className="font-semibold">
+            <PlayerList gameId={prop.game.id}></PlayerList>
+          </a>
         </li>
       </ul>
     </div>
