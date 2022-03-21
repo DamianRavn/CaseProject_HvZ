@@ -1,3 +1,14 @@
+## Mandag 21/03 ##
+- Authentication/authorization giver stadig problemer
+  - Det er ikke lykkedes at deploye keycloack til backend og de fejlmeddelelser der gives er ikke brugbare
+    - Kan deployes på Heroku men det koster penge
+    - Auth0 på Azure vil også koste penge
+  - Azure tilbyder integration med Facebook, Google etc., måske dette er en god løsning
+  - Vi spørger Dewald om hjælp
+  - Frontend arbejder videre med at løse Keycloak problemerne i React, da dette vil skulle fixes uanset hvilken løsning vi vælger
+- Frosti arbejder videre med nye sider i frontend uden keycloack
+- Vi holder møde med Dewald kl 13:00
+
 ## Fredag 18/03 ##
 - Keycloack giver lidt udfordringer
   - Deployment til Azure virker ikke pt.
