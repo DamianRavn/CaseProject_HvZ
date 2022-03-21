@@ -1,7 +1,6 @@
 import { useGetPlayerNonAdminQuery } from "../../features/apiSlice";
-import GameItem from "./GameItem";
 
-export const PlayerList = (props) => {
+export const PlayerCount = (props) => {
   const {
     data: players,
     isLoading,
@@ -18,10 +17,10 @@ export const PlayerList = (props) => {
     players.forEach((player) => {
       if (player.game === props.gameId) gamePlayerCount++;
     });
-    content = <h1>Number of Players: {gamePlayerCount}.</h1>;
+    content = <>{gamePlayerCount}</>;
   } else if (isError) {
     content = <h1>{error.toString()}</h1>;
   }
 
-  return <div>{content}</div>;
+  return <>{content}</>;
 };

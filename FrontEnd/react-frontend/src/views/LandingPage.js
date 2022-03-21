@@ -17,6 +17,10 @@ const LandingPage = () => {
     navigator("/login");
   };
 
+  const gotoCreateAccount = () => {
+    navigator("/signup");
+  };
+
   return (
     <div className="default-class">
       <div className="font-semibold">
@@ -27,12 +31,16 @@ const LandingPage = () => {
       <br></br>
 
       <button className="btn" onClick={gotoLogin}>
-        Login Page
+        Login
+      </button>
+
+      <button className="btn" onClick={gotoCreateAccount}>
+        Create Account
       </button>
 
       <br></br>
       <GameList></GameList>
-      <UserList />
+      {/* <UserList /> */}
     </div>
   );
 };

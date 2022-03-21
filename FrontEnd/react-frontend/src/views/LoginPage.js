@@ -1,24 +1,18 @@
 import { useNavigate } from "react-router-dom";
-import { PlayerList } from "../components/game/PlayerCount";
 
 const LoginPage = () => {
+
   const navigator = useNavigate();
 
   const gotoSignIn = () => {
     navigator("/gamereg");
   };
 
-  const gotoCreateAccount = () => {
-    navigator("/signup");
-  };
-
-  const gotoHelp = () => {
-    alert("Help: button pressed.");
-  };
-
   const gotoLandingPage = () => {
     navigator("/");
   };
+
+  
 
   return (
     <div className="default-class">
@@ -36,15 +30,8 @@ const LoginPage = () => {
       <button className="btn" onClick={gotoSignIn}>
         Sign in
       </button>
-      <div className="divider" />
-      <button className="btn" onClick={gotoCreateAccount}>
-        Greate Account
-      </button>
-      <div className="divider" />
-      <button className="btn" onClick={gotoHelp}>
-        Help
-      </button>
-      <PlayerList gameId={1}></PlayerList>
+
+
     </div>
   );
 };
