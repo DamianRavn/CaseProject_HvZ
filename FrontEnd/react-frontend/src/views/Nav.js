@@ -1,8 +1,12 @@
-import { useKeycloak } from "@react-keycloak/web";
-import { UserList } from "../components/user/UserList";
+import KeycloakService from "../services/KeycloakService"
 
 const Nav = () => {
-  const { keycloak, initialized } = useKeycloak();
+  const handleLoginClick = () => {
+		KeycloakService.doLogin()
+	}
+  const handleLogoutClick = () => {
+		KeycloakService.doLogout()
+	}
 
   return (
     <div>
@@ -27,22 +31,22 @@ const Nav = () => {
               </ul>
               <div className="hidden xl:flex items-center space-x-5">
                 <div className="hover:text-gray-200">
-                  {!keycloak.authenticated && (
+                  {!KeycloakService.isLoggedIn() && (
                     <button
                       type="button"
                       className="text-blue-800"
-                      onClick={() => keycloak.login()}
+                      onClick={handleLoginClick}
                     >
                       Login
                     </button>
                   )}
-                  {keycloak.authenticated && (
+                  {KeycloakService.isLoggedIn() && (
                     <button
                       type="button"
                       className="text-blue-800"
-                      onClick={() => keycloak.logout()}
+                      onClick={handleLogoutClick}
                     >
-                      Logout ({keycloak.tokenParsed.preferred_username})
+                      Logout ({KeycloakService.getUsername()})
                     </button>
                   )}
                 </div>
