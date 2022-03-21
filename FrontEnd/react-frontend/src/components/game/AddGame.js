@@ -32,7 +32,7 @@ export const AddGame = () => {
     <section>
       <h2>Add a New Game</h2>
       <form>
-        <label htmlFor="gameTitle">Post Title:</label>
+        <label htmlFor="gameTitle">Game Title:</label>
         <input
           type="text"
           id="gameTitle"

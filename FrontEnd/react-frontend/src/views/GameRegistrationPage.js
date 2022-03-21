@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import { GameList } from "./GameList";
+import { GameList } from "../components/game/GameList";
 
-const GameRegistration = () => {
+const GameRegistrationPage = () => {
   const navigator = useNavigate();
 
   const gotoLanding = () => {
@@ -30,4 +30,4 @@ const GameRegistration = () => {
   );
 };
 
-export default GameRegistration;
+export default GameRegistrationPage;
