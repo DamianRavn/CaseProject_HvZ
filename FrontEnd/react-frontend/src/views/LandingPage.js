@@ -9,6 +9,10 @@ const LandingPage = () => {
     navigator("/login");
   };
 
+  const gotoCreateAccount = () => {
+    navigator("/signup");
+  };
+
   if (KeycloakService.isLoggedIn()) {
     localStorage.setItem("access-token", KeycloakService.getToken());
     return <UserList />;
@@ -24,7 +28,11 @@ const LandingPage = () => {
       <br></br>
 
       <button className="btn" onClick={gotoLogin}>
-        Login Page
+        Login
+      </button>
+
+      <button className="btn" onClick={gotoCreateAccount}>
+        Create Account
       </button>
 
       <br></br>
