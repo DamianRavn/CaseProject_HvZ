@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebAPI.Models;
 
 namespace WebAPI.Migrations
 {
     [DbContext(typeof(HumanVZombiesDbContext))]
-    partial class HumanVZombiesDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220317151259_UserTableCleanUpAndGameStateTypoFix")]
+    partial class UserTableCleanUpAndGameStateTypoFix
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -274,7 +276,7 @@ namespace WebAPI.Migrations
             modelBuilder.Entity("WebAPI.Models.Domain.Player", b =>
                 {
                     b.HasOne("WebAPI.Models.Domain.Game", "Game")
-                        .WithMany("Players")
+                        .WithMany()
                         .HasForeignKey("GameId");
 
                     b.HasOne("WebAPI.Models.Domain.User", "User")
@@ -284,11 +286,6 @@ namespace WebAPI.Migrations
                     b.Navigation("Game");
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("WebAPI.Models.Domain.Game", b =>
-                {
-                    b.Navigation("Players");
                 });
 #pragma warning restore 612, 618
         }

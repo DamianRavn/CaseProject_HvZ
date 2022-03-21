@@ -11,5 +11,6 @@ namespace WebAPI.Models.DTO.Game
         public string Name { get; set; }
         public string GameState { get; set; }
         public int Admin { get; set; }
+        public List<int> Players { get; set; }
     }
 }

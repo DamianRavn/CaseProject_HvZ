@@ -43,39 +43,39 @@
             <param name="id">Id of the user to check.</param>
             <returns>True if the user exists; false otherwise.</returns>
         </member>
-        <member name="T:WebAPI.Controllers.GameController">
+        <member name="T:WebAPI.Controllers.GamesController">
             <summary>
-            The controller holds all the API endpoints for the Games table
+            The controller holds all the API endpoints for the Games table.
             </summary>
         </member>
-        <member name="M:WebAPI.Controllers.GameController.#ctor(WebAPI.Models.HumanVZombiesDbContext,AutoMapper.IMapper)">
+        <member name="M:WebAPI.Controllers.GamesController.#ctor(WebAPI.Models.HumanVZombiesDbContext,AutoMapper.IMapper)">
             <summary>
             Adding context and mapper with dependency injection.
             </summary>
             <param name="context">The proper context</param>
             <param name="mapper">The automapper</param>
         </member>
-        <member name="M:WebAPI.Controllers.GameController.GetGames">
+        <member name="M:WebAPI.Controllers.GamesController.GetGames">
             <summary>
             Fetches all games from the database.
             </summary>
             <returns>A collection of games.</returns>
         </member>
-        <member name="M:WebAPI.Controllers.GameController.GetGame(System.Int32)">
+        <member name="M:WebAPI.Controllers.GamesController.GetGame(System.Int32)">
             <summary>
             Fetches a specific game in the database.
             </summary>
             <param name="id">The id of the game to fetch.</param>
             <returns>The game, if it exists. Otherwise, the NotFound response.</returns>
         </member>
-        <member name="M:WebAPI.Controllers.GameController.PostGame(WebAPI.Models.DTO.Game.GameCreateDTO)">
+        <member name="M:WebAPI.Controllers.GamesController.PostGame(WebAPI.Models.DTO.Game.GameCreateDTO)">
             <summary>
             Creates a new game based on the given game object.
             </summary>
             <param name="dtoGame">The game object.</param>
             <returns>The newly created game.</returns>
         </member>
-        <member name="M:WebAPI.Controllers.GameController.PutGame(System.Int32,WebAPI.Models.DTO.Game.GameUpdateDTO)">
+        <member name="M:WebAPI.Controllers.GamesController.PutGame(System.Int32,WebAPI.Models.DTO.Game.GameUpdateDTO)">
             <summary>
             Updates a specific game with the values of the given game object.
             </summary>
@@ -83,7 +83,7 @@
             <param name="dtoGame">A game object containing the updated values.</param>
             <returns>Nothing if the update succeeds. BadRequest if the given id doesn't match the id of a game. NotFound if the game doesn't exist.</returns>
         </member>
-        <member name="M:WebAPI.Controllers.GameController.GameExists(System.Int32)">
+        <member name="M:WebAPI.Controllers.GamesController.GameExists(System.Int32)">
             <summary>
             Helper function, which checks if a game with the given id exists.
             </summary>
@@ -159,7 +159,7 @@
         </member>
         <member name="T:WebAPI.Controllers.UsersController">
             <summary>
-            API endpoints for User table
+            API endpoints for User table. Requires authorization
             </summary>
         </member>
         <member name="M:WebAPI.Controllers.UsersController.#ctor(WebAPI.Models.HumanVZombiesDbContext,AutoMapper.IMapper)">
@@ -169,7 +169,7 @@
             <param name="context">The proper context.</param>
             <param name="mapper">The automapper.</param>
         </member>
-        <member name="M:WebAPI.Controllers.UsersController.GetUser">
+        <member name="M:WebAPI.Controllers.UsersController.GetUsers">
             <summary>
             Fetches all users in the database.
             </summary>
@@ -196,20 +196,10 @@
             <param name="id">Id of the user to check.</param>
             <returns>True if the user exists; false otherwise.</returns>
         </member>
-        <member name="M:WebAPI.Utilities.JwtGenerator.GenerateUserToken(System.String)">
+        <member name="T:WebAPI.Profiles.GameProfile">
             <summary>
-            Used to generate a user token for security
+            Defines the maps between Game and its DTOs.
             </summary>
-            <param name="username">the name the user logs on with</param>
-            <returns>A secure token</returns>
-        </member>
-        <member name="M:WebAPI.Utilities.JwtGenerator.GenerateToken(System.Security.Claims.Claim[],System.DateTime)">
-            <summary>
-            Generates the actual token
-            </summary>
-            <param name="claims">the claims</param>
-            <param name="expires">when the token expires</param>
-            <returns>A secure token</returns>
         </member>
     </members>
 </doc>
