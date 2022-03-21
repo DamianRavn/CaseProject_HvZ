@@ -1,3 +1,28 @@
+## Mandag 21/03 ##
+- Authentication/authorization giver stadig problemer
+  - Det er ikke lykkedes at deploye keycloack til backend og de fejlmeddelelser der gives er ikke brugbare
+    - Kan deployes på Heroku men det koster penge
+    - Auth0 på Azure vil også koste penge
+  - Azure tilbyder integration med Facebook, Google etc., måske dette er en god løsning
+  - Vi spørger Dewald om hjælp
+  - Frontend arbejder videre med at løse Keycloak problemerne i React, da dette vil skulle fixes uanset hvilken løsning vi vælger
+- Frosti arbejder videre med nye sider i frontend uden keycloack
+- Vi holder møde med Dewald kl 13:00
+
+## Fredag 18/03 ##
+- Keycloack giver lidt udfordringer
+  - Deployment til Azure virker ikke pt.
+  - Authentication token gemmes i local storage efte login, men bliver ikke hentet i tide
+    - Ie. når token er hentet, er API request allerede blevet afvist
+- Vi har haft lidt uregelmæssigheder i naming conventions
+  - I frontend skal mapper starte med lowercase.
+    - Det er svært at rette, da git ikke er case sensitive for mapper
+      - I stedet kan man rename til tmp og så tilbage igen til den ønskede case
+    - Dette er rettet i main branch og keycloack-frontend branch
+  - I backend bør vores API endpoint starte med lowercase
+- Evt. nye endpoints, fx et til at få alle users i et game
+- Vi mødes igen på kontoret på mandag - minus Jesper som flyver hjem i løbet af mandagen
+
 ## Onsdag 16/03 ##
 - Frontend
   - pt har vi en branch kaldet new-frontend-old-backend, fordi vi ikke har koblet frontend op på den nye backend der kræver en token
