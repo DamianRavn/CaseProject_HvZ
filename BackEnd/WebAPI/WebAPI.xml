@@ -90,6 +90,46 @@
             <param name="id">The id to check for.</param>
             <returns>True if a game with that id exists. False otherwise.</returns>
         </member>
+        <member name="T:WebAPI.Controllers.KillsTablesController">
+            <summary>
+            The controller holds all the API endpoints for the Games table.
+            </summary>
+        </member>
+        <member name="M:WebAPI.Controllers.KillsTablesController.GetKills">
+            <summary>
+            Fetches all kills from the database.
+            </summary>
+            <returns>A collection of games.</returns>
+        </member>
+        <member name="M:WebAPI.Controllers.KillsTablesController.GetKill(System.Int32)">
+            <summary>
+            Fetches a specific kill in the database.
+            </summary>
+            <param name="id">The id of the kill to fetch.</param>
+            <returns>The kill, if it exists. Otherwise, the NotFound response.</returns>
+        </member>
+        <member name="M:WebAPI.Controllers.KillsTablesController.PostKill(WebAPI.Models.DTO.KillsTable.KillsCreateDTO)">
+            <summary>
+            Creates a new kill based on the given kill object.
+            </summary>
+            <param name="dtoGame">The kill object.</param>
+            <returns>The newly created kill.</returns>
+        </member>
+        <member name="M:WebAPI.Controllers.KillsTablesController.PutKill(System.Int32,WebAPI.Models.DTO.KillsTable.KillsUpdateDTO)">
+            <summary>
+            Updates a specific kill with the values of the given kill object.
+            </summary>
+            <param name="id">The id of the kill to update.</param>
+            <param name="dtoKill">A kill object containing the updated values.</param>
+            <returns>Nothing if the update succeeds. BadRequest if the given id doesn't match the id of a kill. NotFound if the kill doesn't exist.</returns>
+        </member>
+        <member name="M:WebAPI.Controllers.KillsTablesController.KillsTableExists(System.Int32)">
+            <summary>
+            Helper function, which checks if a kill with the given id exists.
+            </summary>
+            <param name="id">The id to check for.</param>
+            <returns>True if a kill with that id exists. False otherwise.</returns>
+        </member>
         <member name="T:WebAPI.Controllers.PlayersController">
             <summary>
             The controller holds all the API endpoints for the Players table
@@ -197,6 +237,11 @@
             <returns>True if the user exists; false otherwise.</returns>
         </member>
         <member name="T:WebAPI.Profiles.GameProfile">
+            <summary>
+            Defines the maps between Game and its DTOs.
+            </summary>
+        </member>
+        <member name="T:WebAPI.Profiles.KillsTableProfile">
             <summary>
             Defines the maps between Game and its DTOs.
             </summary>
