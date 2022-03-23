@@ -2,10 +2,10 @@ import KeycloakService from "../services/KeycloakService"
 
 const Nav = () => {
   const handleLoginClick = () => {
-		KeycloakService.doLogin()
+		KeycloakService.doLogin();
 	}
   const handleLogoutClick = () => {
-		KeycloakService.doLogout()
+		KeycloakService.doLogout();
 	}
 
   return (

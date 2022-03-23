@@ -16,7 +16,7 @@ const initKeycloak = onAuthenticated => {
 		})
 		.then(onAuthenticated)
 		.catch(() =>{
-			console.log('here');
+			console.log('Could not initialize Keycloak');
 		})
 };
 

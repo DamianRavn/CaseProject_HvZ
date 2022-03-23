@@ -1,7 +1,6 @@
 import "./App.css";
 import React from "react";
 import { ReactKeycloakProvider } from "@react-keycloak/web";
-import keycloak from "./keycloak";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Nav from "./views/Nav";
 import LandingPage from "./views/LandingPage";
