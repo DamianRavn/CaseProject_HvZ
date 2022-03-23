@@ -15,5 +15,7 @@ namespace WebAPI.Models.Domain
         public string LastName { get; set; }
         [Required, MaxLength(10)]
         public string UserName { get; set; }
+        //[Required] // needs seed data change
+        public string KeycloakId { get; set; }
     }
 }
