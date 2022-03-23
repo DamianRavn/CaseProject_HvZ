@@ -3,7 +3,8 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://hvzapi.azurewebsites.net/api",
+    //baseUrl: "https://hvzapi.azurewebsites.net/api",
+    baseUrl: "https://localhost:44389/api",
   }),
   endpoints: (builder) => ({
     getUsers: builder.query({
