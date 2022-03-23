@@ -1,4 +1,7 @@
-import KeycloakService from "../services/KeycloakService"
+import React from "react";
+import KeycloakService from "../services/KeycloakService";
+import UserPlaceHolderImg from "../images/UserPlaceHolderImg.png";
+import HvZLogo from "../images/HvZLogo.png";
 
 const Nav = () => {
   const handleLoginClick = () => {
@@ -9,53 +12,47 @@ const Nav = () => {
 	}
 
   return (
-    <div>
-      <div className="top-0 w-full flex flex-wrap">
-        <section className="x-auto">
-          <nav className="flex justify-between bg-gray-200 text-blue-800 w-screen">
-            <div className="px-5 xl:px-12 py-6 flex w-full items-center">
-              <h1 className="text-3xl font-bold font-heading">
-                Humans vs. Zombies
-              </h1>
-              <ul className="hidden md:flex px-4 mx-auto font-semibold font-heading space-x-12">
-                <li>
-                  <a className="hover:text-blue-800" href="/">
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a className="hover:text-blue-800" href="/game">
-                    Game
-                  </a>
-                </li>
-              </ul>
-              <div className="hidden xl:flex items-center space-x-5">
-                <div className="hover:text-gray-200">
-                  {!KeycloakService.isLoggedIn() && (
-                    <button
-                      type="button"
-                      className="text-blue-800"
-                      onClick={handleLoginClick}
-                    >
-                      Login
-                    </button>
-                  )}
-                  {KeycloakService.isLoggedIn() && (
-                    <button
-                      type="button"
-                      className="text-blue-800"
-                      onClick={handleLogoutClick}
-                    >
-                      Logout ({KeycloakService.getUsername()})
-                    </button>
-                  )}
-                </div>
-              </div>
-            </div>
-          </nav>
-        </section>
+    <nav class="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800">
+      <div class="container flex flex-wrap justify-between items-center mx-auto">
+        <a href="/" class="flex items-center">
+          <img src={HvZLogo} class="mr-3 h-6 sm:h-9" alt="HvZ Logo" />
+          <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white dark:focus:ring-blue-800">
+            Humans Vs. Zombies
+          </span>
+        </a>
+        <div className="flex md:order-2 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 rounded-2xl">
+          <img
+            class="object-scale-down scale-75"
+            src={UserPlaceHolderImg}
+            alt=""
+          />
+          {!KeycloakService.isLoggedIn() && (
+            <button
+              type="button"
+              onClick={handleLoginClick}
+              class="text-white  font-medium text-sm px-5 py-2.5 flex"
+            >
+              Login
+            </button>
+          )}
+          {KeycloakService.isLoggedIn() && (
+            <button
+              type="button"
+              onClick={handleLogoutClick}
+              class="text-white  font-medium text-sm px-5 py-2.5 flex"
+            >
+              Logout ({KeycloakService.getUsername()})
+            </button>
+          )}
+        </div>
+        <div
+          class="hidden justify-between items-center w-full md:flex md:w-auto md:order-1"
+          id="mobile-menu-4"
+        >
+          <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium"></ul>
+        </div>
       </div>
-    </div>
+    </nav>
   );
 };
 
