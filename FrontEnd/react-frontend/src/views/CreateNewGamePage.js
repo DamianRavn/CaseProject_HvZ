@@ -19,7 +19,7 @@ const CreateNewGamePage = () => {
     <div className="default-class">
       <div className="font-semibold">
         <div className="text-4xl">
-          <h1>Login Page</h1>
+          <h1>Create New Game Page</h1>
         </div>
       </div>
       <br></br>

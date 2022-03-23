@@ -20,7 +20,7 @@ export const Game = () => {
         <h1>Game name: {game.name}</h1>
         <h1>Game status: {game.gameState}</h1>
         <h1>Game admin: {game.admin}</h1>
-        {game.gameState === "InProgress" &&
+        {game.gameState === "Registration" &&
         <>
         <br></br>
         <button className="btn" onClick={handleJoinGame}>
