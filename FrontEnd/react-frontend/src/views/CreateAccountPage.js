@@ -27,6 +27,7 @@ const CreateAccountPage = () => {
       <button className="btn" onClick={handleCreateAccountBtn}>
         Create Account
       </button>
+      Create Account button take you to /gamereg
     </div>
   );
 };

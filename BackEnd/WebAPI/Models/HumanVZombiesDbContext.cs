@@ -13,6 +13,7 @@ namespace WebAPI.Models
         public DbSet<Game> Games { get; set; }
         public DbSet<User> User { get; set; }
         public DbSet<Admin> Admin { get; set; }
+        public DbSet<KillsTable> KillsTables { get; set; }
 
 
         public HumanVZombiesDbContext(DbContextOptions<HumanVZombiesDbContext> options) : base(options)
@@ -44,5 +45,7 @@ namespace WebAPI.Models
             modelBuilder.Entity<Player>().HasData(new Player() { Id = 5, IsHuman = true, IsPatientZero = false, BiteCode = "e", GameId = 3, UserId = 5 });
 
         }
+
+        public DbSet<WebAPI.Models.Domain.KillsTable> KillsTable { get; set; }
     }
 }

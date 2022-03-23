@@ -74,7 +74,7 @@ namespace WebAPI
                    IssuerSigningKeyResolver = (token, securityToken, kid, parameters) =>
                    {
                        var client = new HttpClient();
-                       var keyuri = "http://localhost:8080/realms/dev/protocol/openid-connect/certs";
+                       var keyuri = "https://keycloak-hvz.herokuapp.com/auth/realms/dev/protocol/openid-connect/certs";
                        //Retrieves the keys from keycloak instance to verify token
                        var response = client.GetAsync(keyuri).Result;
                        var responseString = response.Content.ReadAsStringAsync().Result;
@@ -84,11 +84,11 @@ namespace WebAPI
 
                    ValidIssuers = new List<string>
                    {
-                        "http://localhost:8080/realms/dev"
+                        "https://keycloak-hvz.herokuapp.com/auth/realms/dev"
                    },
 
                    //This checks the token for a the 'aud' claim value
-                   ValidAudience = "account",
+                   ValidAudience = "HvZ",
                };
            });
         }
