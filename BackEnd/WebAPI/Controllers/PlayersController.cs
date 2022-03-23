@@ -58,6 +58,7 @@ namespace WebAPI.Controllers
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public async Task<ActionResult<PlayerReadDTO>> GetPlayer(int id)
         {
+            //TODO: remember to authorize
             var player = await _context.Players.FindAsync(id);
 
             if (player == null)

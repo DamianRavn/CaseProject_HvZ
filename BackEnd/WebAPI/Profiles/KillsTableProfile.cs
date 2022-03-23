@@ -24,10 +24,15 @@ namespace WebAPI.Profiles
                 .MapFrom(a => a.UserId))
                 .ReverseMap();
             CreateMap<KillsCreateDTO, KillsTable>()
-                //Ignore objects for DTO
+                .ForMember(cdto => cdto.UserId, opt => opt
+                .MapFrom(a => a.User))
                 .ForMember(cdto => cdto.User, opt => opt.Ignore())
                 .ForMember(cdto => cdto.Users, opt => opt.Ignore());
-            CreateMap<KillsUpdateDTO, KillsTable>();
+            CreateMap<KillsUpdateDTO, KillsTable>()
+                .ForMember(cdto => cdto.UserId, opt => opt
+                .MapFrom(a => a.User))
+                .ForMember(cdto => cdto.User, opt => opt.Ignore())
+                .ForMember(cdto => cdto.Users, opt => opt.Ignore());
         }
     }
 }

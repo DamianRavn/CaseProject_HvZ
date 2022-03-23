@@ -33,7 +33,7 @@ namespace WebAPI.Controllers
         /// <summary>
         /// Fetches all kills from the database.
         /// </summary>
-        /// <returns>A collection of games.</returns>
+        /// <returns>A collection of kills.</returns>
         [HttpGet]
         [ProducesResponseType(StatusCodes.Status200OK)]
         public async Task<ActionResult<IEnumerable<KillsReadDTO>>> GetKills()
@@ -78,11 +78,12 @@ namespace WebAPI.Controllers
         public async Task<ActionResult<KillsTable>> PostKill(KillsCreateDTO dtoKill)
         {
             KillsTable domainKill = _mapper.Map<KillsTable>(dtoKill);
+            domainKill.Users = _context.User.Where(t => dtoKill.Users.Contains(t.Id)).ToArray();
 
             _context.KillsTable.Add(domainKill);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetGame", new { id = domainKill.Id },
+            return CreatedAtAction("GetKill", new { id = domainKill.Id },
                                    _mapper.Map<KillsReadDTO>(domainKill));
         }
 
@@ -104,9 +105,10 @@ namespace WebAPI.Controllers
                 return BadRequest();
             }
 
-            KillsTable domainGame = _mapper.Map<KillsTable>(dtoKill);
+            KillsTable domainKill = _mapper.Map<KillsTable>(dtoKill);
+            domainKill.Users = _context.User.Where(t => dtoKill.Users.Contains(t.Id)).ToArray();
 
-            _context.Entry(domainGame).State = EntityState.Modified;
+            _context.Entry(domainKill).State = EntityState.Modified;
 
             try
             {

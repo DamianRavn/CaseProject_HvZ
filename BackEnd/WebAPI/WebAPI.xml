@@ -99,7 +99,7 @@
             <summary>
             Fetches all kills from the database.
             </summary>
-            <returns>A collection of games.</returns>
+            <returns>A collection of kills.</returns>
         </member>
         <member name="M:WebAPI.Controllers.KillsTablesController.GetKill(System.Int32)">
             <summary>
