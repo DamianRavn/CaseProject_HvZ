@@ -1,15 +1,16 @@
 import { useNavigate } from "react-router-dom";
 
-const LoginPage = () => {
+const CreateNewGamePage = () => {
 
   const navigator = useNavigate();
 
-  const gotoSignIn = () => {
+  const goBack = () => {
     navigator("/gamereg");
   };
 
-  const gotoLandingPage = () => {
-    navigator("/");
+  const handleCreateNewGame = () => {
+    alert("Create New Game button has been pushed.")
+    //navigator("/");
   };
 
   
@@ -18,23 +19,23 @@ const LoginPage = () => {
     <div className="default-class">
       <div className="font-semibold">
         <div className="text-4xl">
-          <h1>Login Page</h1>
+          <h1>Create New Game Page</h1>
         </div>
       </div>
       <br></br>
 
-      <button className="btn" onClick={gotoLandingPage}>
+      <button className="btn" onClick={goBack}>
         Go Back
       </button>
       <div className="divider" />
-      <button className="btn" onClick={gotoSignIn}>
-        Sign in
+      <button className="btn" onClick={handleCreateNewGame}>
+        Create Game
       </button>
-      Sign in button take you to /gamereg
+      
 
 
     </div>
   );
 };
 
-export default LoginPage;
+export default CreateNewGamePage;

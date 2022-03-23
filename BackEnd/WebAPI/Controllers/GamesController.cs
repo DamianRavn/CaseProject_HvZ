@@ -18,7 +18,7 @@ namespace WebAPI.Controllers
     /// <summary>
     /// The controller holds all the API endpoints for the Games table.
     /// </summary>
-    [Route("api/game")]
+    [Route("api/Game")]
     [ApiController]
     public class GamesController : Controller
     {

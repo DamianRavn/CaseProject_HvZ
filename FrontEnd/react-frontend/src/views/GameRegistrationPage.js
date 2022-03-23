@@ -8,6 +8,10 @@ const GameRegistrationPage = () => {
     navigator("/");
   };
 
+  const gotoCreateNewGamePage = () => {
+    navigator("/newgame");
+  };
+
   return (
     <div className="default-class">
       <div className="font-semibold">
@@ -24,8 +28,18 @@ const GameRegistrationPage = () => {
         Log Out
       </button>
 
+      <button className="btn" onClick={gotoCreateNewGamePage}>
+        Create New Game
+      </button>
+      Button takes you to /newgame
+
+
       <br></br>
       <GameList></GameList>
+      <br></br>
+
+      
+
     </div>
   );
 };

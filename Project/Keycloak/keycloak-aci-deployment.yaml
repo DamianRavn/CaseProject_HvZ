@@ -1,0 +1,54 @@
+api-version: 2022-03-18
+location: norwayeast
+name: hvz-keycloak
+properties:
+  containers:
+    - name: keycloak
+      properties:
+        image: quay.io/keycloak/keycloak:17.0.0
+        ports:
+          - port: 8080
+            protocol: TCP
+        resources:
+          requests:
+            cpu: 1
+            memoryInGB: 1
+        environmentVariables:
+          - name: KEYCLOAK_USER
+            value: 'admin'
+          - name: KEYCLOAK_PASSWORD
+            value: 'admin'
+          - name: PROXY_ADDRESS_FORWARDING
+            value: 'true'
+    - name: caddy
+      properties:
+        image: caddy:latest
+        command:
+          [
+            'caddy',
+            'reverse-proxy',
+            '--from',
+            'hvz-keycloak.norwayeast.azurecontainer.io',
+            '--to',
+            'localhost:8080',
+          ]
+        ports:
+          - port: 80
+            protocol: TCP
+          - port: 443
+            protocol: TCP
+        resources:
+          requests:
+            cpu: 0.5
+            memoryInGB: 0.5
+  ipAddress:
+    ports:
+      - port: 80
+        protocol: TCP
+      - port: 443
+        protocol: TCP
+    type: Public
+    dnsNameLabel: hvz-keycloak
+  osType: Linux
+tags: null
+type: Microsoft.ContainerInstance/containerGroups
