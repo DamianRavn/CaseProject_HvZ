@@ -1,3 +1,13 @@
+## Onsdag 21/03 ##
+- Keycloak er nu deployed til Heroku
+  - Der er en infinite loading bug hvis man prøver siden flere gange
+    - Kan omgås ved at rydde cache
+    - Marius undersøger en mere permanent løsning på det
+- Nogle har haft lidt problemer med at få frotnend til at fungere
+  - Pt. skal local backend benyttes for at undgå en game player error
+- Vi holder frontend status møde efter fælles 1:1
+- End of day meeting kl 15 med MVP status
+
 ## Mandag 21/03 ##
 - Authentication/authorization giver stadig problemer
   - Det er ikke lykkedes at deploye keycloack til backend og de fejlmeddelelser der gives er ikke brugbare
