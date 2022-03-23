@@ -6,6 +6,11 @@ export const Game = () => {
 
   const { data: game, isFetching, isSuccess } = useGetGameQuery(gameId);
 
+  const handleJoinGame = () => {
+    alert("Join Game has been pushed.")
+    //navigator("/");
+  };
+
   let content;
   if (isFetching) {
     content = <h1>Loading game data</h1>;
@@ -15,6 +20,14 @@ export const Game = () => {
         <h1>Game name: {game.name}</h1>
         <h1>Game status: {game.gameState}</h1>
         <h1>Game admin: {game.admin}</h1>
+        {game.gameState === "InProgress" &&
+        <>
+        <br></br>
+        <button className="btn" onClick={handleJoinGame}>
+        Join Game
+        </button>
+        </>
+      }
       </div>
     );
   }

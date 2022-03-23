@@ -1,8 +1,17 @@
-import Game from "../components/game/Game.js";
+import { Game } from "../components/game/Game.js";
 import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
+
+
+
 
 const GamePage = () => {
   const navigator = useNavigate();
+  const { gameId } = useParams();
+
+  
+  console.log("gameId:")
+  console.log(gameId)
 
   const gotoGameRegistration = () => {
     navigator("/gamereg");
@@ -26,16 +35,11 @@ const GamePage = () => {
       <br></br>
 
       <button className="btn" onClick={gotoGameRegistration}>
-        Game Registration Page
+        Go Back
       </button>
-      <div className="divider" />
-      <button className="btn" onClick={gotoAdmin}>
-        Admin Page
-      </button>
-      <div className="divider" />
-      <button className="btn" onClick={gotoLanding}>
-        Landing Page
-      </button>
+
+      <Game></Game>
+      
     </div>
   );
 };
