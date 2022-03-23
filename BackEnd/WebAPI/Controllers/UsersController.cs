@@ -65,6 +65,20 @@ namespace WebAPI.Controllers
             return Ok(dtoUser);
         }
 
+        [HttpGet("keycloak/{keycloak_id}")]
+        public async Task<ActionResult<UserReadDTO>> GetUserByKeycloakId(string keycloak_id)
+        {
+            var user = await _context.User.Where(u => u.KeycloakId == keycloak_id).ToListAsync();
+
+            if (user.Count == 0)
+            {
+                return NotFound();
+            }
+            
+            UserReadDTO dtoUser = _mapper.Map<UserReadDTO>(user.First());
+            return Ok(dtoUser);
+        }
+
         //// PUT: api/Users/5
         //// To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         //[HttpPut("{id}")]

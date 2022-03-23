@@ -58,6 +58,12 @@ const updateToken = (successCallback) =>
  */
 const getUsername = () => _keycloak.tokenParsed?.preferred_username;
 
+const getId = () => _keycloak.subject;
+
+const getFirstName = () => _keycloak.tokenParsed?.given_name;
+
+const getLastName = () => _keycloak.tokenParsed?.family_name;
+
 /**
  * Check if user has any of the given roles
  * @param {Array<string>} roles 
@@ -74,6 +80,9 @@ const KeycloakService = {
 	updateToken,
 	getUsername,
 	hasRole,
+    getId,
+    getFirstName,
+    getLastName
 };
 
 export default KeycloakService
