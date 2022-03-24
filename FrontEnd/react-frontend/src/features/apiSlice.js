@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 export const apiSlice = createApi({
   reducerPath: 'api',
   baseQuery: fetchBaseQuery({
-    baseUrl: 'CHANGE ME',
+    baseUrl: 'https://localhost:44389/api',
   }),
   endpoints: (builder) => ({
     getUsers: builder.query({
@@ -16,16 +16,29 @@ export const apiSlice = createApi({
       }),
     }),
     getUser: builder.query({
-      query: (userId) => `/Users/${userId}`,
+      query: (userId) => ({
+        url: `/Users/${userId}`,
+        headers: new Headers({
+          Authorization: 'Bearer ' + localStorage.getItem('access-token'),
+        }),
+      }),
     }),
     getUserByKeycloakId: builder.query({
       query: (keycloakId) => `/Users/keycloak/${keycloakId}`,
     }),
     addNewUser: builder.mutation({
       query: (initialUser) => ({
-        url: '/user',
+        url: '/Users',
         method: 'POST',
         body: initialUser,
+      }),
+    }),
+    getPlayer: builder.query({
+      query: (player) => ({
+        url: `/Players/${player}`,
+        headers: new Headers({
+          Authorization: 'Bearer ' + localStorage.getItem('access-token'),
+        }),
       }),
     }),
     getPlayerNonAdmin: builder.query({
@@ -55,5 +68,6 @@ export const {
   useGetGameQuery,
   useAddNewGameMutation,
   useAddNewUserMutation,
-  useGetUserByKeycloakId,
+  useGetUserByKeycloakIdQuery,
+  useGetPlayerQuery,
 } = apiSlice
