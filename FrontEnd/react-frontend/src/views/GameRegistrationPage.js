@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { GameList } from "../components/game/GameList";
 
+
 const GameRegistrationPage = () => {
   const navigator = useNavigate();
 
@@ -22,7 +23,8 @@ const GameRegistrationPage = () => {
           <h1>You are signed in</h1>
         </div>
       </div>
-      <br></br>
+      
+
 
       <button className="btn" onClick={gotoLanding}>
         Log Out

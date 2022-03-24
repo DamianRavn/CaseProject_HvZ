@@ -1,6 +1,8 @@
 import { useNavigate } from 'react-router-dom'
 import { GameList } from '../components/game/GameList'
 import { UserList } from '../components/user/UserList'
+
+import GameRegistrationPage from './GameRegistrationPage'
 import KeycloakService from '../services/KeycloakService'
 import {
   useAddNewUserMutation,
@@ -34,7 +36,7 @@ const LandingPage = () => {
     //   }
     // }
 
-    return <UserList />
+    return <><GameRegistrationPage /><UserList /></>
   }
 
   return (
