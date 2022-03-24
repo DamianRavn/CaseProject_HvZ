@@ -9,7 +9,7 @@ export const Game = () => {
   const { data: game, isFetching, isSuccess } = useGetGameQuery(gameId);
 
   const handleJoinGame = () => {
-    alert("Join Game has been pushed.");
+    alert("Join Game has been pushed.\nGame ID: " + gameId)
     //navigator("/");
   };
 
