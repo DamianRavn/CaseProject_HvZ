@@ -1,15 +1,16 @@
-import { Redirect } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import KeycloakService from '../services/KeycloakService'
+import { useEffect } from 'react'
 
-const withKeycloak = Component => props => {
+const WithKeycloak = (props) => {
+  const navigator = useNavigate()
 
-	const isLoggedIn = KeycloakService.isLoggedIn()
+  useEffect(() => {
+    if (!KeycloakService.isLoggedIn()) {
+      navigator('/')
+    }
+  })
 
-	if (isLoggedIn) {
-		return <Component {...props} />
-	} else {
-		return <Redirect to="/" />
-	}
-
+  return props.children
 }
-export default withKeycloak
+export default WithKeycloak

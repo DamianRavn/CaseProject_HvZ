@@ -1,29 +1,34 @@
-import { Game } from "../components/game/Game.js";
-import { useNavigate } from "react-router-dom";
-import { useParams } from "react-router-dom";
-
-
-
+import { Game } from '../components/game/Game.js'
+import { useNavigate } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
+import KeycloakService from '../services/KeycloakService'
+import { useEffect } from 'react'
 
 const GamePage = () => {
-  const navigator = useNavigate();
-  const { gameId } = useParams();
+  // const navigator = useNavigate()
 
-  
-  console.log("gameId:")
+  // useEffect(() => {
+  //   if (!KeycloakService.isLoggedIn()) {
+  //     navigator('/')
+  //   }
+  // })
+
+  const { gameId } = useParams()
+
+  console.log('gameId:')
   console.log(gameId)
 
   const gotoGameRegistration = () => {
-    navigator("/gamereg");
-  };
+    navigator('/gamereg')
+  }
 
   const gotoLanding = () => {
-    navigator("/");
-  };
+    navigator('/')
+  }
 
   const gotoAdmin = () => {
-    navigator("/admin");
-  };
+    navigator('/admin')
+  }
 
   return (
     <div className="default-class">
@@ -39,9 +44,8 @@ const GamePage = () => {
       </button>
 
       <Game></Game>
-      
     </div>
-  );
-};
+  )
+}
 
-export default GamePage;
+export default GamePage
