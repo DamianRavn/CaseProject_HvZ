@@ -1,10 +1,11 @@
-import { Game } from "../components/game/Game.js";
-import { useNavigate } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import { Game } from '../components/game/Game.js'
+import { useNavigate } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
+import KeycloakService from '../services/KeycloakService'
+import { useEffect } from 'react'
 import React, { useState } from "react";
 
-
-
+const GamePage = () => {
 
 const GamePage = (pr) => {
 
@@ -16,9 +17,13 @@ const GamePage = (pr) => {
   const { gameId } = useParams();
 
   const gotoGameRegistration = () => {
-    navigator("/gamereg");
-  };
+    navigator('/gamereg')
+  }
 
+  const gotoAdmin = () => {
+    navigator('/admin')
+  }
+  
   const displayDescription = () => {
     setContent(<Game/>)
   };
@@ -70,9 +75,8 @@ const GamePage = (pr) => {
       <button className="btn" onClick={gotoGameRegistration}>
         Go Back
       </button>
-      
     </div>
-  );
-};
+  )
+}
 
-export default GamePage;
+export default GamePage

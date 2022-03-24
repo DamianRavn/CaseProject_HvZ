@@ -1,23 +1,20 @@
-import { useNavigate } from "react-router-dom";
-import { GameList } from "../components/game/GameList";
-import { UserList } from "../components/user/UserList";
-import KeycloakService from "../services/KeycloakService";
-import { useGetUserByKeycloakIdQuery } from "../features/apiSlice";
-import { CheckUser } from "../components/user/CheckUser";
+import { useNavigate } from 'react-router-dom'
+import { GameList } from '../components/game/GameList'
+import KeycloakService from '../services/KeycloakService'
+import { CheckUser } from '../components/user/CheckUser'
 
 const LandingPage = () => {
-
-  const navigator = useNavigate();
+  const navigator = useNavigate()
   const gotoLogin = () => {
-    navigator("/login");
-  };
+    navigator('/login')
+  }
 
   const gotoCreateAccount = () => {
-    navigator("/signup");
-  };
+    navigator('/signup')
+  }
 
   if (KeycloakService.isLoggedIn()) {
-    localStorage.setItem("access-token", KeycloakService.getToken());
+    localStorage.setItem('access-token', KeycloakService.getToken())
     return (
       <div className="default-class">
         <div className="font-semibold">
@@ -28,7 +25,7 @@ const LandingPage = () => {
         <GameList></GameList>
         <CheckUser></CheckUser>
       </div>
-    );
+    )
   }
 
   return (
@@ -40,7 +37,7 @@ const LandingPage = () => {
       </div>
       <GameList></GameList>
     </div>
-  );
-};
+  )
+}
 
-export default LandingPage;
+export default LandingPage
