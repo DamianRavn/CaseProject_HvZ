@@ -8,7 +8,13 @@ const CreateNewGamePage = (props) => {
   if (KeycloakService.isLoggedIn()) {
     localStorage.setItem("access-token", KeycloakService.getToken());
     return (
-      <div className="bg-blue w-full p-8 flex justify-center">
+      <div className="default-class">
+      <div className="font-semibold text-center">
+        <div className="text-4xl">
+          <h1>Create new Game</h1>
+        </div>
+      </div>
+      <div className="bg-blue w-full p-8 flex justify-center">  
         <div className="rounded-md bg-grey-light w-64 p-2 border border-black">
           <div className="text-center mt-2 border-b rounded">
             <h2>Game name goes here</h2>
@@ -33,6 +39,7 @@ const CreateNewGamePage = (props) => {
             </div>
           </div>
         </div>
+      </div>
       </div>
     );
   }
