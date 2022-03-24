@@ -1,39 +1,47 @@
 import { useNavigate } from "react-router-dom";
+import KeycloakService from "../services/KeycloakService";
+import { GameList } from "../components/game/GameList";
 
-const CreateNewGamePage = () => {
+const CreateNewGamePage = (props) => {
 
-  const navigator = useNavigate();
 
-  const goBack = () => {
-    navigator("/gamereg");
-  };
+  if (KeycloakService.isLoggedIn()) {
+    localStorage.setItem("access-token", KeycloakService.getToken());
+    return (
+      <div className="bg-blue w-full p-8 flex justify-center">
+        <div className="rounded-md bg-grey-light w-64 p-2 border border-black">
+          <div className="text-center mt-2 border-b rounded">
+            <h2>Game name goes here</h2>
+            <input type="text" className="border-b"></input>
+          </div>
+          <div className="text-center mt-2">
+            <div className="bg-white p-2 rounded mt-1 border-b border-grey">
+              <p>
+                something to edit
+              </p>
+            </div>
 
-  const handleCreateNewGame = () => {
-    alert("Create New Game button has been pushed.")
-    //navigator("/");
-  };
+            <div className="bg-white p-2 rounded mt-1 border-b border-grey">
+              <p>
+                something to edit
+              </p>
+            </div>
 
-  
-
-  return (
-    <div className="default-class">
-      <div className="font-semibold">
-        <div className="text-4xl">
-          <h1>Create New Game Page</h1>
+            <div className="bg-white p-2 rounded mt-1">
+              <div className="text-grey-darker mt-2 ml-2 flex justify-between items-start"></div>
+              <button className="btn">Create</button>
+            </div>
+          </div>
         </div>
       </div>
-      <br></br>
+    );
+  }
 
-      <button className="btn" onClick={goBack}>
-        Go Back
-      </button>
-      <div className="divider" />
-      <button className="btn" onClick={handleCreateNewGame}>
-        Create Game
-      </button>
-      
-
-
+  return (
+    <div className="bg-blue w-full p-8 flex justify-center">
+      <div className="rounded-md bg-grey-light p-2 border border-black">
+        <h1><b>Please login to create a new game</b></h1>
+      </div>
     </div>
   );
 };
