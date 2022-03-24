@@ -16,7 +16,12 @@ export const apiSlice = createApi({
       }),
     }),
     getUser: builder.query({
-      query: (userId) => `/Users/${userId}`,
+      query: (userId) => ({
+        url: `/Users/${userId}`,
+        headers: new Headers({
+          Authorization: "Bearer " + localStorage.getItem("access-token"),
+        }),
+      }),
     }),
     getUserByKeycloakId: builder.query({
       query: (keycloakId) => `/Users/keycloak/${keycloakId}`,
@@ -26,6 +31,14 @@ export const apiSlice = createApi({
         url: "/Users",
         method: "POST",
         body: initialUser,
+      }),
+    }),
+    getPlayer: builder.query({
+      query: (player) => ({
+        url: `/Players/${player}`,
+        headers: new Headers({
+          Authorization: "Bearer " + localStorage.getItem("access-token"),
+        }),
       }),
     }),
     getPlayerNonAdmin: builder.query({
@@ -56,4 +69,5 @@ export const {
   useAddNewGameMutation,
   useAddNewUserMutation,
   useGetUserByKeycloakIdQuery,
+  useGetPlayerQuery,
 } = apiSlice;
