@@ -6,6 +6,7 @@ import { useGetUserByKeycloakIdQuery } from "../features/apiSlice";
 import { CheckUser } from "../components/user/CheckUser";
 
 const LandingPage = () => {
+
   const navigator = useNavigate();
   const gotoLogin = () => {
     navigator("/login");
@@ -33,7 +34,7 @@ const LandingPage = () => {
   return (
     <div className="default-class">
       <div className="font-semibold">
-        <div className="text-4xl">
+        <div className="text-4xl text-center">
           <h1>Landing Page</h1>
         </div>
       </div>

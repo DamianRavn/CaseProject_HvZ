@@ -1,5 +1,6 @@
 import { useGetGameQuery } from "../../features/apiSlice";
 import { useParams } from "react-router-dom";
+import React from "react";
 
 export const Game = () => {
   const { gameId } = useParams();
