@@ -30,14 +30,11 @@ jobs:
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/dist
         working-directory: BackEnd/WebAPI
 
-      - name: Zip artifact for deployment
-        run: Compress-Archive . release.zip
-
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
           name: .net-app
-          path: release.zip
+          path: ${{env.DOTNET_ROOT}}/dist
 
   deploy:
     runs-on: windows-latest
@@ -51,9 +48,6 @@ jobs:
         uses: actions/download-artifact@v2
         with:
           name: .net-app
-
-      - name: unzip artifact for deployment
-        run: Expand-Archive release.zip
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
