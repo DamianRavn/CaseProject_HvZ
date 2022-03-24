@@ -1,5 +1,7 @@
 import { useGetGameQuery } from "../../features/apiSlice";
 import { useParams } from "react-router-dom";
+import { PlayerList } from "./PlayerList";
+import React from "react";
 
 export const Game = () => {
   const { gameId } = useParams();
@@ -19,15 +21,14 @@ export const Game = () => {
       <div>
         <h1>Game name: {game.name}</h1>
         <h1>Game status: {game.gameState}</h1>
-        <h1>Game admin id: {game.admin}</h1>
-        {game.gameState === "Registration" &&
-        <>
-        <br></br>
-        <button className="btn" onClick={handleJoinGame}>
-        Join Game
-        </button>
-        </>
-      }
+        <h1>Game admin: {game.admin}</h1>
+        <h1>Players:</h1>
+        <PlayerList ids={game.players} />
+        {game.gameState === "Registration" && (
+          <button className="btn" onClick={handleJoinGame}>
+            Join Game
+          </button>
+        )}
       </div>
     );
   }
