@@ -9,9 +9,6 @@ import {
 
 const LandingPage = () => {
   const navigator = useNavigate()
-  const gotoLogin = () => {
-    navigator('/login')
-  }
 
   const gotoCreateAccount = () => {
     navigator('/signup')
@@ -40,17 +37,13 @@ const LandingPage = () => {
   return (
     <div className="default-class">
       <div className="font-semibold">
-        <div className="text-4xl">
+        <div className="text-4xl text-center">
           <h1>Landing Page</h1>
         </div>
       </div>
       <br></br>
 
-      <button className="btn" onClick={gotoLogin}>
-        Login
-      </button>
-
-      <button className="btn" onClick={gotoCreateAccount}>
+      <button class="btn absolute top-13 right-12" onClick={gotoCreateAccount}>
         Create Account
       </button>
 
