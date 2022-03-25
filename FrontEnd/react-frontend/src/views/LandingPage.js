@@ -13,6 +13,10 @@ const LandingPage = () => {
     navigator('/signup')
   }
 
+  const gotoCreateNewGamePage = () => {
+    navigator("/newgame");
+  }
+
   if (KeycloakService.isLoggedIn()) {
     localStorage.setItem('access-token', KeycloakService.getToken())
     return (
@@ -21,6 +25,9 @@ const LandingPage = () => {
           <div className="text-4xl">
             <h1>Landing Page</h1>
           </div>
+          <button className="btn" onClick={gotoCreateNewGamePage}>
+            Create New Game
+          </button>
         </div>
         <GameList></GameList>
         <CheckUser></CheckUser>
