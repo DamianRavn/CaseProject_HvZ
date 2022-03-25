@@ -1,6 +1,6 @@
 import Keycloak from 'keycloak-js'
 
-const _keycloak = new Keycloak(process.env.PUBLIC_URL + '/keycloak.json')
+const _keycloak = new Keycloak('../keycloak.json')
 
 /**
  * Initialise Keycloak
