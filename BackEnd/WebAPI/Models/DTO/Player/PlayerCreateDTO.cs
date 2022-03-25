@@ -8,8 +8,6 @@ namespace WebAPI.Models.DTO.Player
     public class PlayerCreateDTO
     {
         public bool IsHuman { get; set; }
-        public bool IsPatientZero { get; set; }
-        public string BiteCode { get; set; }
         public int User { get; set; }
         public int Game { get; set; }
     }
