@@ -197,6 +197,12 @@
             <param name="id">The id to check for.</param>
             <returns>True if a player with that id exists. False otherwise.</returns>
         </member>
+        <member name="M:WebAPI.Controllers.PlayersController.GetBiteCode(System.Int32)">
+            <summary>
+            A simple randomly generated string to create a bite code. Should be fine for distincness
+            </summary>
+            <returns>a 5 char long string</returns>
+        </member>
         <member name="T:WebAPI.Controllers.UsersController">
             <summary>
             API endpoints for User table. Requires authorization

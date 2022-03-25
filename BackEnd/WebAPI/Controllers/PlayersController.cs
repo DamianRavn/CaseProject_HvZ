@@ -88,6 +88,7 @@ namespace WebAPI.Controllers
             }
 
             Player domainPlayer = _mapper.Map<Player>(dtoPlayer);
+            
 
             _context.Entry(domainPlayer).State = EntityState.Modified;
 
@@ -122,6 +123,9 @@ namespace WebAPI.Controllers
         public async Task<ActionResult<Player>> PostPlayer(PlayerCreateDTO dtoPlayer)
         {
             Player domainPlayer = _mapper.Map<Player>(dtoPlayer);
+            domainPlayer.IsPatientZero = false;
+            domainPlayer.BiteCode = GetBiteCode(5);
+
             _context.Players.Add(domainPlayer);
             await _context.SaveChangesAsync();
 
@@ -194,6 +198,24 @@ namespace WebAPI.Controllers
         private bool PlayerExists(int id)
         {
             return _context.Players.Any(e => e.Id == id);
+        }
+
+        /// <summary>
+        /// A simple randomly generated string to create a bite code. Should be fine for distincness
+        /// </summary>
+        /// <returns>a 5 char long string</returns>
+        public static string GetBiteCode(int size)
+        {
+            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            var stringChars = new char[size];
+            var random = new Random();
+
+            for (int i = 0; i < stringChars.Length; i++)
+            {
+                stringChars[i] = chars[random.Next(chars.Length)];
+            }
+
+            return new String(stringChars);
         }
     }
 }
