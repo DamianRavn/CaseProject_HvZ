@@ -1,7 +1,6 @@
 import Keycloak from 'keycloak-js'
-import keycloakjson from '../keycloak.json'
 
-const _keycloak = new Keycloak(keycloakjson)
+const _keycloak = new Keycloak('../keycloak.json')
 
 /**
  * Initialise Keycloak

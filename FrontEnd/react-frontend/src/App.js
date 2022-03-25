@@ -12,7 +12,7 @@ import CreateAccountPage from './views/CreateAccountPage'
 import CreateNewGamePage from './views/CreateNewGamePage'
 import { Game } from './components/game/Game'
 import { AddGame } from './components/game/AddGame'
-import WithKeycloak from './hoc/withKeycloak'
+import WithKeycloak from './hoc/WithKeycloak'
 
 function App() {
   return (
