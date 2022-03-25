@@ -17,7 +17,7 @@ const GamePage = (pr) => {
 
   
   const gotoGameRegistration = () => {
-    navigator('/gamereg')
+    navigator('/')
   }
 
   const gotoAdmin = () => {

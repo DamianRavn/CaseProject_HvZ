@@ -54,7 +54,28 @@ export const apiSlice = createApi({
       query: (initialGame) => ({
         url: '/game',
         method: 'POST',
+        headers: new Headers({
+          Authorization: 'Bearer ' + localStorage.getItem('access-token'),
+        }),
         body: initialGame,
+      }),
+    }),
+    getAdmins: builder.query({
+      query: () => ({
+        url: `/Admins`,
+        headers: new Headers({
+          Authorization: 'Bearer ' + localStorage.getItem('access-token'),
+        }),
+      }),
+    }),
+    addNewAdmin: builder.mutation({
+      query: (user) => ({
+        url: '/Admins',
+        method: 'POST',
+        headers: new Headers({
+          Authorization: 'Bearer ' + localStorage.getItem('access-token'),
+        }),
+        body: user,
       }),
     }),
   }),
@@ -70,4 +91,6 @@ export const {
   useAddNewUserMutation,
   useGetUserByKeycloakIdQuery,
   useGetPlayerQuery,
+  useGetAdminsQuery,
+  useAddNewAdminMutation,
 } = apiSlice

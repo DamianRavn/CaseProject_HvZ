@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form"
+import { CreateGame } from "../components/game/CreateGame";
 
 const CreateNewGamePage = () => {
 
@@ -13,14 +14,11 @@ const CreateNewGamePage = () => {
 
   
   const {register, handleSubmit} = useForm()
-  const onSubmit = (d) => 
-    alert("Create game button was pushed. \ngameName: "+d.gameName + "\ngameRules: "+ d.gameRules +"\n" + JSON.stringify(d))
-  
-
-  let counter = 0;
-
-  
-
+  const onSubmit = (d) => {
+    //alert("Create game button was pushed. \ngameName: "+d.gameName + "\ngameRules: "+ d.gameRules +"\n" + JSON.stringify(d))
+    CreateGame(d.gameName)
+  }
+    
   return (
     <div className="default-class">
       <div className="font-semibold">
