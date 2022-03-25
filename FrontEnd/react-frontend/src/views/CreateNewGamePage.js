@@ -6,7 +6,7 @@ const CreateNewGamePage = () => {
   const navigator = useNavigate();
 
   const goBack = () => {
-    navigator("/gamereg");
+    navigator("/");
   };
 
 
@@ -33,32 +33,27 @@ const CreateNewGamePage = () => {
       <br></br>
 
       <form onSubmit={handleSubmit(onSubmit)}>
+        <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <label>
           Game name:
-          <input {...register("gameName")} />
+          <input class="appearance-none block w-100 bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" {...register("gameName")} />
         </label>
+        
         <label>
           Input 2:
-          <input {...register("gameRules")} />
+          <input class="appearance-none block w-100 bg-gray-200 text-gray-700 border border-red-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" {...register("gameRules")} />
         </label>
-
-        <p>Render: <span>{counter++}</span></p>
-        {/* <input type="submit" > */}
-          <button type="submit" className="btn">
-            Create Game
-          </button>
-        {/* </input> */}
-
+        </div>
+        <br></br>
+        <button type="submit" className="btn">
+          Create Game
+        </button>
       </form>
 
       <button className="btn" onClick={goBack}>
         Go Back
       </button>
       <div className="divider" />
-      
-      
-
-
     </div>
   );
 };
