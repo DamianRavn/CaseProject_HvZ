@@ -1,21 +1,21 @@
 import { Game } from '../components/game/Game.js'
+import { PlayerList } from "../components/game/PlayerList"
+import { useGetGameQuery } from "../features/apiSlice";
 import { useNavigate } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 import KeycloakService from '../services/KeycloakService'
 import { useEffect } from 'react'
 import React, { useState } from "react";
 
-const GamePage = () => {
-
 const GamePage = (pr) => {
+  const navigator = useNavigate();
 
   let [content, setContent] = useState(<Game/>);
-
-
-
-  const navigator = useNavigate();
+  
   const { gameId } = useParams();
+  const { data: game, isFetching, isSuccess } = useGetGameQuery(gameId);
 
+  
   const gotoGameRegistration = () => {
     navigator('/gamereg')
   }
@@ -29,7 +29,12 @@ const GamePage = (pr) => {
   };
 
   const displayPlayersInfo = () => {
-    setContent(<h1>playerInfo</h1>)
+    setContent(<>
+    <h1>Players:</h1>
+    <PlayerList ids={game.players} />
+    </>
+    )
+    
   };
 
   const displayRules = () => {
