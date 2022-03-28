@@ -1,13 +1,6 @@
 import Keycloak from 'keycloak-js'
 
-const _keycloak = new Keycloak({
-  realm: 'prod',
-  'auth-server-url': 'https://keycloak-hvz.herokuapp.com/auth',
-  'ssl-required': 'external',
-  resource: 'HvZ',
-  'public-client': true,
-  'confidential-port': 0,
-})
+const _keycloak = new Keycloak('keycloak.json')
 
 /**
  * Initialise Keycloak
