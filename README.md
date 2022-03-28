@@ -6,7 +6,7 @@ of a fictional zombie infection through a population.
 
 Full assignment description can be found [here](https://github.com/DamianRavn/CaseProject_HvZ/blob/main/Project/HvZ%20Case.pdf).
 
-A diagram of the Movie Characters database can be found [here](https://github.com/DamianRavn/CaseProject_HvZ/blob/main/Project/database_diagram_first_draft.png).
+A diagram of our database can be found [here](https://github.com/DamianRavn/CaseProject_HvZ/blob/main/Project/database_diagram_first_draft.png).
 
 ## Description
 
