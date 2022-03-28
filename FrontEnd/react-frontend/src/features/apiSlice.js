@@ -52,6 +52,8 @@ export const apiSlice = createApi({
           Authorization: 'Bearer ' + localStorage.getItem('access-token'),
         }),
         body: initialPlayer,
+      }),
+    }),
     updatePlayer: builder.mutation({
       query: (updatedPlayer) => ({
         url: `/Players/${updatedPlayer.id}`,
