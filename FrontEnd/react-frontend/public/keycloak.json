@@ -1,5 +1,5 @@
 {
-    "realm": "prod",
+    "realm": "dev",
     "auth-server-url": "https://keycloak-hvz.herokuapp.com/auth/",
     "ssl-required": "external",
     "resource": "HvZ",

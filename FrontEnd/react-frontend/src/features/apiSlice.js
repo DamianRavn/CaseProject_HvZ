@@ -44,6 +44,16 @@ export const apiSlice = createApi({
     getPlayerNonAdmin: builder.query({
       query: () => '/Players/non-admin',
     }),
+    addNewPlayer: builder.mutation({
+      query: (initialPlayer) => ({
+        url: '/Players',
+        method: 'POST',
+        headers: new Headers({
+          Authorization: 'Bearer ' + localStorage.getItem('access-token'),
+        }),
+        body: initialPlayer,
+      }),
+    }),
     getGames: builder.query({
       query: () => '/game',
     }),
@@ -70,4 +80,5 @@ export const {
   useAddNewUserMutation,
   useGetUserByKeycloakIdQuery,
   useGetPlayerQuery,
+  useAddNewPlayerMutation,
 } = apiSlice

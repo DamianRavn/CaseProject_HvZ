@@ -12,7 +12,7 @@ import CreateAccountPage from './views/CreateAccountPage'
 import CreateNewGamePage from './views/CreateNewGamePage'
 import { Game } from './components/game/Game'
 import { AddGame } from './components/game/AddGame'
-import WithKeycloak from './hoc/WithKeycloak'
+import ProtectedRoute from './hocs/ProtectedRoute'
 
 function App() {
   return (
@@ -26,12 +26,11 @@ function App() {
             exact
             path="/game/:gameId"
             element={
-              <WithKeycloak>
-                <GamePage />
-              </WithKeycloak>
+              <ProtectedRoute>
+                <GamePage></GamePage>
+              </ProtectedRoute>
             }
           />
-          {/* <Route exact path="/games/:gameId" element={<Game />} /> */}
           <Route path="/addgame" element={<AddGame />} />
           <Route path="/gamereg" element={<GameRegistrationPage />} />
           <Route path="/login" element={<LoginPage />} />
