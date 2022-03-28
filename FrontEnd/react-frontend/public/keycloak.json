@@ -1,0 +1,8 @@
+{
+    "realm": "prod",
+    "auth-server-url": "https://keycloak-hvz.herokuapp.com/auth/",
+    "ssl-required": "external",
+    "resource": "HvZ",
+    "public-client": true,
+    "confidential-port": 0
+  }
