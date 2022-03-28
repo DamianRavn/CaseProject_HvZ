@@ -1,6 +1,7 @@
-import { useGetUserByKeycloakIdQuery } from "../../features/apiSlice";
-import { PostUser } from "./PostUser";
-import KeycloakService from "../../services/KeycloakService";
+import { useGetUserByKeycloakIdQuery } from '../../features/apiSlice'
+import { PostUser } from './PostUser'
+import KeycloakService from '../../services/KeycloakService'
+import { useEffect } from 'react'
 
 export const CheckUser = () => {
   const {
@@ -9,10 +10,14 @@ export const CheckUser = () => {
     isSuccess,
     isError,
     error,
-  } = useGetUserByKeycloakIdQuery(KeycloakService.getId());
+  } = useGetUserByKeycloakIdQuery(KeycloakService.getId())
 
   if (isError) {
-    return <PostUser></PostUser>;
+    return <PostUser></PostUser>
   }
-  return <></>;
-};
+  if (isSuccess) {
+    localStorage.setItem('user-id', user.id)
+    localStorage.setItem('access-token', KeycloakService.getToken())
+  }
+  return <></>
+}

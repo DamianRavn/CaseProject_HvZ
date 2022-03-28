@@ -14,11 +14,10 @@ const LandingPage = () => {
   }
 
   const gotoCreateNewGamePage = () => {
-    navigator("/newgame");
+    navigator('/newgame')
   }
 
   if (KeycloakService.isLoggedIn()) {
-    localStorage.setItem('access-token', KeycloakService.getToken())
     return (
       <div className="default-class">
         <div className="font-semibold">
