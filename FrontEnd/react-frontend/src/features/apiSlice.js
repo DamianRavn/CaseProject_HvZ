@@ -69,13 +69,13 @@ export const apiSlice = createApi({
       }),
     }),
     addNewAdmin: builder.mutation({
-      query: (user) => ({
+      query: (initialAdmin) => ({
         url: '/Admins',
         method: 'POST',
         headers: new Headers({
           Authorization: 'Bearer ' + localStorage.getItem('access-token'),
         }),
-        body: user,
+        body: initialAdmin,
       }),
     }),
   }),

@@ -1,62 +1,84 @@
 import { useAddNewGameMutation } from "../../features/apiSlice";
 import { GetUser } from "../user/GetUser";
 import { GetAdmin } from "../admin/GetAdmin";
+import { CreateAdmin } from "../admin/CreateAdmin";
 import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import KeycloakService from "../../services/KeycloakService";
 
-export const CreateGame = (gameName) => {
+
+
+export const CreateGame = (gameName, userId, userAdminId) => {
     //const navigator = useNavigate()
 
-    console.log("Inside CreateAdmin.js")
+    // let [userId, setUserId] = useState(-1) //GetUser()
+    
+    // let [adminId, setAdminId] = useState(-1) //GetAdmin(userId)
+
+    // setUserId(GetUser())
+    // while(userId === null){
+
+    // }
+    
+    // setAdminId(GetAdmin(userId))
+    // while(adminId === null)
+    // {
+
+    // }
+    console.log(`gameName: ${gameName} \nuserId: ${userId} \nuserAdminId: ${userAdminId} \n`)
+
+    if(userAdminId === -1)
+    {
+      console.log("Admin doesn't exist, will call CreateAdmin(userId)")
+      userAdminId = CreateAdmin(userId)
+    }
+
+    console.log("Inside CreateGame.js")
     console.log(gameName)
 
-    const userId = GetUser()
-    
-    const adminId = GetAdmin(userId)
-
-    const {
-        data: admin,
-        isLoading,
-        isSuccess,
-        isError,
-        error,
-    } = useAddNewGameMutation({name: gameName, gameState: "Registration", adminId: adminId});
-
-  if (isSuccess) {
-    console.log("CreateGame.js Success")
-    navigator("/")
 
 
-  }
-  else {
-      console.log("Error CreateGame.js")
-  }
-};
+    // keycloakId = KeycloakService.getId()
+    // console.log("keycloakId: " + keycloakId)
+    // console.log(typeof(keycloakId) )
+
+    //user = GetUser(keycloakId)
+    //GetUser()
+    console.log("userId: ")
 
 
-// const [addNewUser, { isLoading }] = useAddNewUserMutation();
+    //.then(userId =>  GetUserId(keycloakId))
 
-//   useEffect(() => {
-//     console.log("addNewUser fired");
-//     addNewUser({
-//       firstName: KeycloakService.getFirstName(),
-//       lastName: KeycloakService.getLastName(),
-//       userName: KeycloakService.getUsername(),
-//       keycloakId: KeycloakService.getId(),
-//     });
-//   }, []);
     
 
 
 
+    // Promise.all([
+    //     userId =  GetUser()
+    //     .then(adminId =  GetAdmin(userId))
+    //   ]);
 
-//   let content;
-//   if (isLoading) {
-//     content = <h1>Loading games</h1>;
-//   } else if (isSuccess) {
-//     content = games.map((game) => <GameItem key={game.id} game={game} />);
-//   } else if (isError) {
-//     content = <h1>{error.toString()}</h1>;
+    
+
+    // const userId =  GetUser()
+    // const adminId =  GetAdmin(userId)
+
+//     const {
+//         data: admin,
+//         isLoading,
+//         isSuccess,
+//         isError,
+//         error,
+//     } = useAddNewGameMutation({name: gameName, gameState: "Registration", adminId: adminId});
+
+//   if (isSuccess) {
+//     console.log("CreateGame.js Success")
+//     navigator("/")
+
+
 //   }
-
-  //return <div></div>;
+//   else {
+//       console.log("Error CreateGame.js")
+//   }
+}
 

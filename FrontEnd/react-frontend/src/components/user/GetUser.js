@@ -1,21 +1,21 @@
 import { useGetUserByKeycloakIdQuery } from "../../features/apiSlice";
-import KeycloakService from "../../services/KeycloakService";
 
-export const GetUser = () => {
+
+export const GetUser = (keycloakId) => {
+    console.log("GetUser.js Start of function, input = " )
   const {
     data: user,
     isLoading,
     isSuccess,
     isError,
     error,
-  } = useGetUserByKeycloakIdQuery(KeycloakService.getId());
+  } = useGetUserByKeycloakIdQuery(keycloakId); 
 
-  if (isSuccess) {
+   if (isSuccess) {     
+     return user
+   }
 
-    return user
-    //return <GetAdmins id="{user.id}"></GetAdmins>
-  }
-  else{
-      console.log("GetUser.js Error")
-  }
+  return <></>;
 };
+
+

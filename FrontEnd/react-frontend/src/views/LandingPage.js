@@ -5,9 +5,7 @@ import { CheckUser } from '../components/user/CheckUser'
 
 const LandingPage = () => {
   const navigator = useNavigate()
-  const gotoLogin = () => {
-    navigator('/login')
-  }
+  
 
   const gotoCreateAccount = () => {
     navigator('/signup')
