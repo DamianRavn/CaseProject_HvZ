@@ -4,10 +4,10 @@ import KeycloakService from '../services/KeycloakService'
 import { CheckUser } from '../components/user/CheckUser'
 
 const LandingPage = () => {
-  const navigator = useNavigate();
-  const gotoGameRegistration = () => {
-    navigator("/newgame");
-  };
+  const navigator = useNavigate()
+  const gotoCreateNewGamePage = () => {
+    navigator('/newgame')
+  }
 
   if (KeycloakService.isLoggedIn()) {
     return (
@@ -25,7 +25,9 @@ const LandingPage = () => {
           <CheckUser></CheckUser>
         </div>
         <div className="default-class text-center mb-10">
-          <button className="btn" onClick={gotoGameRegistration}>Create Game</button>
+          <button className="btn" onClick={gotoCreateNewGamePage}>
+            Create Game
+          </button>
         </div>
       </div>
     )
