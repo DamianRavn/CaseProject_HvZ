@@ -1,15 +1,18 @@
-import React from "react";
-import KeycloakService from "../services/KeycloakService";
-import UserPlaceHolderImg from "../images/UserPlaceHolderImg.png";
-import HvZLogo from "../images/HvZLogo.png";
+import React from 'react'
+import KeycloakService from '../services/KeycloakService'
+import UserPlaceHolderImg from '../images/UserPlaceHolderImg.png'
+import HvZLogo from '../images/HvZLogo.png'
+import { useNavigate } from 'react-router-dom'
 
 const Nav = () => {
+  const navigator = useNavigate()
+
   const handleLoginClick = () => {
-    KeycloakService.doLogin();
-  };
+    KeycloakService.doLogin()
+  }
   const handleLogoutClick = () => {
-    KeycloakService.doLogout();
-  };
+    KeycloakService.doLogout()
+  }
 
   return (
     <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 rounded dark:bg-gray-800">
@@ -53,7 +56,7 @@ const Nav = () => {
         </div>
       </div>
     </nav>
-  );
-};
+  )
+}
 
-export default Nav;
+export default Nav

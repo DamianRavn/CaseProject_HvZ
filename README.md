@@ -6,33 +6,21 @@ of a fictional zombie infection through a population.
 
 Full assignment description can be found [here](https://github.com/DamianRavn/CaseProject_HvZ/blob/main/Project/HvZ%20Case.pdf).
 
-A diagram of the Movie Characters database can be found [here](https://github.com/DamianRavn/CaseProject_HvZ/blob/main/Project/database_diagram_first_draft.png).
+A diagram of our database can be found [here](https://github.com/DamianRavn/CaseProject_HvZ/blob/main/Project/database_diagram_first_draft.png).
 
 ## Description
 
 The app consists of 3 key components:
 
-- A web-based frontend (written in React)
+- A web-based frontend (written in React, styled with Tailwind CSS)
 - An API (written in C# with ASP.NET)
-- A Database
+- A Database (SQL Server / Entity Framework code first)
 
 ## Getting Started
 
-Use an IDE like Visual Studio.
+Follow the user manual located here.
 
-### Dependencies
-
-- .NET 5
-- ASP.NET
-- SQLServer
-
-### Install
-
-Clone or download repository.
-
-### Usage
-
-The project is deployed to Azure at: 
+The project is deployed to Azure at: [https://freshhvzapp.azurewebsites.net/](https://freshhvzapp.azurewebsites.net/)
 
 ## Help
 

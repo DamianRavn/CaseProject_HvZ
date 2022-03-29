@@ -11,9 +11,8 @@ namespace WebAPI.Models.Domain
         public int Id { get; set; }
         [Required]
         public bool IsHuman { get; set; }
-        [Required]
         public bool IsPatientZero { get; set; }
-        [Required, StringLength(5)]
+        [StringLength(5)]
         public string BiteCode { get; set; }
         public int? UserId { get; set; }
         public User User { get; set; }
