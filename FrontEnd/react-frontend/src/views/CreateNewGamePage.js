@@ -1,9 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form"
 
-const CreateNewGamePage = () => {
+const CreateNewGamePage = (props) => {
 
-  const navigator = useNavigate();
 
   const goBack = () => {
     navigator("/");
@@ -25,7 +24,7 @@ const CreateNewGamePage = () => {
     <div className="default-class">
       <div className="font-semibold">
         <div className="text-4xl">
-          <h1>Create New Game Page</h1>
+          <h1>Create new Game</h1>
         </div>
       </div>
       <br></br>
